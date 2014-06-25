@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-06-25T12:12:37Z" product-name="easy_googlemap">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_easygooglemap_domain_model_location">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.longitude">
+				<source>Longitude</source>
+			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.latitude">
+				<source>latitude</source>
+			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.link">
+				<source>Link</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>
