@@ -1,7 +1,7 @@
 var MapStyle = [ { stylers: [ { saturation: -98 }, { gamma: 0.79 } ] } ];
-        var startcenter = new google.maps.LatLng(47.52190,15.41676);
-    var bounds = new google.maps.LatLngBounds();
-    var data = [
+var startcenter = new google.maps.LatLng(47.52190,15.41676);
+var bounds = new google.maps.LatLngBounds();
+var data = [
         {
              'title' : 'BKM GmbH Arbon',
             'position' : new google.maps.LatLng(47.52190,9.41676),

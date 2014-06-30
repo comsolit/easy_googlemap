@@ -13,27 +13,12 @@ plugin.tx_easygooglemap {
 	}
 }
 
-plugin.tx_easygooglemap._CSS_DEFAULT_STYLE (
-	textarea.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
+# Include javascript files
+page {
+	includeJSlibs {
+		maps.external = 1
+		maps = http://maps.google.com/maps/api/js?sensor=false
+		infoBox.external = 1
+		infoBox = http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js
 	}
-
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	.tx-easy-googlemap table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-easy-googlemap table th {
-		font-weight:bold;
-	}
-
-	.tx-easy-googlemap table td {
-		vertical-align:top;
-	}
-)
+}
