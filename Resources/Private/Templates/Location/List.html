@@ -27,6 +27,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<th> </th>
 	</tr>
 
+<script>
+
+
+
+
 	<f:for each="{locations}" as="location">
 		<tr>
 			<td><f:link.action action="show" arguments="{location : location}"> {location.longitude}</f:link.action></td>
@@ -39,6 +44,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		</tr>
 	</f:for>
 </table>
+
+</script>
 
 <f:link.action action="new">New Location</f:link.action>
 </f:section>
