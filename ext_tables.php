@@ -3,6 +3,8 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
+include_once(t3lib_extMgm::extPath($_EXTKEY).'/Classes/tx_float6.php');
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
 	'Feeasygooglemap',
