@@ -33,6 +33,14 @@ namespace TYPO3\EasyGooglemap\Domain\Model;
  *
  */
 class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+	
+	/**
+	 * Title
+	 *
+	 * @var \string
+	 * @validate NotEmpty
+	 */
+	protected $title;
 
 	/**
 	 * Longitude
@@ -50,13 +58,6 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $latitude;
 
-	/**
-	 * Title
-	 *
-	 * @var \string
-	 * @validate NotEmpty
-	 */
-	protected $title;
 
 	/**
 	 * Icon
@@ -73,6 +74,25 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @validate NotEmpty
 	 */
 	protected $link;
+	
+	/**
+	 * Returns the title
+	 *
+	 * @return \string $title
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
+	
+	/**
+	 * Sets the title
+	 *
+	 * @param \string $title
+	 * @return void
+	 */
+	public function setTitle($title) {
+		$this->title = $title;
+	}
 
 	/**
 	 * Returns the longitude
@@ -110,25 +130,6 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setLatitude($latitude) {
 		$this->latitude = $latitude;
-	}
-
-	/**
-	 * Returns the title
-	 *
-	 * @return \string $title
-	 */
-	public function getTitle() {
-		return $this->title;
-	}
-
-	/**
-	 * Sets the title
-	 *
-	 * @param \string $title
-	 * @return void
-	 */
-	public function setTitle($title) {
-		$this->title = $title;
 	}
 
 	/**

@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_easygooglemap_domain_model_location'] = array(
 	'ctrl' => $TCA['tx_easygooglemap_domain_model_location']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, longitude, latitude, title, icon, link',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, longitude, latitude, icon, link',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, longitude, latitude, title, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, longitude, latitude, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -93,6 +93,15 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 				),
 			),
 		),
+		'title' => array (
+			'exclude' => 0,
+			'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.title',
+			'config' => array (
+					'type' => 'input',
+					'size' => 30,
+					'eval' => 'trim,required' 
+			) 
+		),
 		'longitude' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.longitude',
@@ -109,15 +118,6 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'double2,required'
-			),
-		),
-		'title' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.title',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim,required'
 			),
 		),
 		'icon' => array(

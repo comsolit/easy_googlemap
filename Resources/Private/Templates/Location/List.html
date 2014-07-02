@@ -2,15 +2,13 @@
 
 <f:section name="main">
 	<f:flashMessages />
-	
-	<f:debug>{all}</f:debug>
-	
+
 	<div id="karte" class="" style="height: 380px; width: auto"></div>
 
 	<script>
 		<![CDATA[
 	    var MapStyle = [ { stylers: [ { saturation: -98 }, { gamma: 0.79 } ] } ];
-	        var startcenter = new google.maps.LatLng(47.52190,15.41676);
+	    var startcenter = new google.maps.LatLng(47.52190,15.41676);
 	    var bounds = new google.maps.LatLngBounds();
 	    var data = [
 			]]><f:for each="{locations}" as="location"><![CDATA[

@@ -16,7 +16,7 @@ if (!defined('TYPO3_MODE')) {
 $TCA['tx_easygooglemap_domain_model_location'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location',
-		'label' => 'longitude',
+		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -34,9 +34,9 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'longitude,latitude,title,icon,link,',
+		'searchFields' => 'title,longitude,latitude,icon,link,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Location.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_easygooglemap_domain_model_location.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_easygooglemap_domain_model_location.png'
 	),
 );
 
