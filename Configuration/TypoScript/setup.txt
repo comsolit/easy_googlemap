@@ -22,3 +22,10 @@ page {
 		infoBox = http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js
 	}
 }
+
+# Include stylesheets
+page {
+	includeCSS {
+		map = EXT:easy_googlemap/Resources/Public/css/map.css
+	}
+}

@@ -1,44 +1,65 @@
 <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
-<h1>Listing for Location</h1>
+	<f:flashMessages />
+	
+	<f:debug>{all}</f:debug>
+	
+	<div id="karte" class="" style="height: 380px; width: auto"></div>
 
-<f:flashMessages />
-
-<table  class="tx_easygooglemap" >
-	<tr>
-		<th><f:translate key="tx_easygooglemap_domain_model_location.longitude" /></th>
-		<th><f:translate key="tx_easygooglemap_domain_model_location.latitude" /></th>
-		<th><f:translate key="tx_easygooglemap_domain_model_location.title" /></th>
-		<th><f:translate key="tx_easygooglemap_domain_model_location.icon" /></th>
-		<th><f:translate key="tx_easygooglemap_domain_model_location.link" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
-	<f:for each="{locations}" as="location">
-		<tr>
-			<td><f:link.action action="show" arguments="{location : location}"> {location.longitude}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{location : location}"> {location.latitude}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{location : location}"> {location.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{location : location}"> {location.icon}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{location : location}"> {location.link}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{location : location}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{location : location}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
-
-<f:link.action action="new">New Location</f:link.action>
+	<script>
+		<![CDATA[
+	    var MapStyle = [ { stylers: [ { saturation: -98 }, { gamma: 0.79 } ] } ];
+	        var startcenter = new google.maps.LatLng(47.52190,15.41676);
+	    var bounds = new google.maps.LatLngBounds();
+	    var data = [
+			]]><f:for each="{locations}" as="location"><![CDATA[
+			{
+	            'title' : ']]>{location.title}<![CDATA[',
+	            'position' : new google.maps.LatLng(]]>{location.latitude}<![CDATA[,]]>{location.longitude}<![CDATA[),
+	            'clickable' : true,
+	            ]]><f:if condition="{location.icon}"><![CDATA[
+	            'icon' : "]]>uploads/tx_easygooglemap/{location.icon}<![CDATA[",
+	            ]]></f:if><![CDATA[
+	            'link' : "]]>{location.link}<![CDATA["
+			},
+	        ]]></f:for><![CDATA[
+	    ];
+	
+	    var optionen = {
+	        zoom: 10,
+	        center: startcenter,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP,
+	        styles: MapStyle
+	    };
+	
+	    var map = new google.maps.Map(document.getElementById("karte"), optionen);
+	    var markers = [];
+	
+	    for (var i=0;i<data.length;i++){
+	        markers[i] = new google.maps.Marker({
+	            position: data[i].position,
+	            map: map,
+	            clickable: data[i].clickable,
+	            url: data[i].link,
+	            icon: data[i].icon
+	        });
+	
+	       infobox = new InfoBox({
+	             content: data[i].title,
+	             disableAutoPan: false,
+	             pixelOffset: new google.maps.Size(0, 0),
+	             infoBoxClearance: new google.maps.Size(1, 1),
+	            closeBoxMargin: "-10px -60px 10px 10px"
+	        }).open(map, markers[i]);
+	
+	        new google.maps.event.addListener(markers[i], 'click', function() {
+	            window.open(this.url);
+	        });
+	        bounds.extend(data[i].position);
+	    }
+	
+	    map.fitBounds(bounds);
+		]]>
+	</script>
 </f:section>

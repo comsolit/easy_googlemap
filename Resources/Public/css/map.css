@@ -1,0 +1,18 @@
+.gmnoprint {
+	display: none;
+}
+
+.infoBox {
+	overflow: hidden;
+	margin-top: 0px;
+	color: 0000555;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	font-weight: bold;
+	border: 1px 0000555 solid;
+}
