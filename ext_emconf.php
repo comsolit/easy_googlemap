@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'EasyGoogleMap',
-	'description' => '',
+	'description' => 'Easy and simple Googlemap Extension for the TYPO3 CMS',
 	'category' => 'misc',
 	'author' => 'Andres Lobacovs',
 	'author_email' => 'info@comsolit.ch',
@@ -32,7 +32,8 @@ $EM_CONF[$_EXTKEY] = array(
 		'depends' => array(
 			'extbase' => '6.0',
 			'fluid' => '6.0',
-			'typo3' => '6.0',
+			'typo3' => '6.0.99-6.2.99',
+			'css_styled_content' => ''
 		),
 		'conflicts' => array(
 		),
