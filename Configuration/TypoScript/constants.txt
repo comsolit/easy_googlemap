@@ -9,6 +9,18 @@ plugin.tx_easygooglemap {
 	}
 	persistence {
 		# cat=plugin.tx_easygooglemap//a; type=string; label=Default storage PID
-		storagePid = 6
+		storagePid = 
+	}
+	configuration {
+		#cat=plugin.tx_easygooglemap//a; type=string; label=Latitude: value to center the map. Must be a float number
+		centerMapLatitude = 47.52190
+		#cat=plugin.tx_easygooglemap//a; type=string; label=Longitude: value to center the map. Must be a float number
+		centerMapLongitude = 15.41676
+		#cat=plugin.tx_easygooglemap//a; type=int+; label=zoom: zoom factor
+		zoom = 10
+		#cat=plugin.tx_easygooglemap//a; type=int; label=saturation: map saturation
+		saturation = -98
+		#cat=plugin.tx_easygooglemap//a; type=string; label=gamma: map gamma
+		gamma = 0.79
 	}
 }

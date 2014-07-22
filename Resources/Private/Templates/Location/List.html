@@ -9,8 +9,8 @@
 
 	<script>
 		<![CDATA[
-	    var MapStyle = [ { stylers: [ { saturation: -98 }, { gamma: 0.79 } ] } ];
-	    var startcenter = new google.maps.LatLng(47.52190,15.41676);
+	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] } ];
+	    var startcenter = new google.maps.LatLng(]]>{settings.centerMapLatitude}<![CDATA[,]]>{settings.centerMapLongitude}<![CDATA[);
 	    var bounds = new google.maps.LatLngBounds();
 	    var data = [
 			]]><f:for each="{locations}" as="location"><![CDATA[
@@ -27,7 +27,7 @@
 	    ];
 	
 	    var optionen = {
-	        zoom: 10,
+	        zoom: ]]>{settings.zoom}<![CDATA[,
 	        center: startcenter,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP,
 	        styles: MapStyle
