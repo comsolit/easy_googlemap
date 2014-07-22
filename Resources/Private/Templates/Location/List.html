@@ -1,7 +1,6 @@
 {namespace map=Tx_EasyGooglemap_ViewHelpers}
-<f:layout name="Default" />
 
-<f:debug>{all}</f:debug>
+<f:layout name="Default" />
 
 <f:section name="main">
 	<f:flashMessages />
@@ -22,7 +21,7 @@
 	            ]]><f:if condition="{location.icon}"><![CDATA[
 	            'icon' : "]]>uploads/tx_easygooglemap/{location.icon}<![CDATA[",
 	            ]]></f:if><![CDATA[
-	            'link' : "]]><map:typolink parameter="{location.link}"/><![CDATA["
+	            'link' : "]]><map:getDomain link="{location.link}"/><![CDATA["                                                              	
 			},
 	        ]]></f:for><![CDATA[
 	    ];

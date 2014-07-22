@@ -143,17 +143,17 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 				'checkbox' => '',
 				'size' => 30,
 				'eval' => 'trim,required',
-				'wizards'  => array(
-					'_PADDING' => 2,
-					'link'     => array(
-						'type'         => 'popup',
-						'title'        => 'Link',
-						'icon'         => 'link_popup.gif',
-						'script'       => 'browse_links.php?mode=wizard',
-						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
-					)
-				),
-				'softref' => 'typolink'
+// 				'wizards'  => array(
+// 					'_PADDING' => 2,
+// 					'link'     => array(
+// 						'type'         => 'popup',
+// 						'title'        => 'Link',
+// 						'icon'         => 'link_popup.gif',
+// 						'script'       => 'browse_links.php?mode=wizard',
+// 						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+// 					)
+// 				),
+				'softref' => 'getDomain'
 			),
 		),
 	),
