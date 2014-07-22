@@ -58,8 +58,8 @@
 	        });
 	        bounds.extend(data[i].position);
 	    }
-	map.fitBounds(bounds);
-	    map.fitBounds(bounds);
+	    if(markers.length > 1)
+	    	map.fitBounds(bounds);
 		]]>
 	</script>
 </f:section>
