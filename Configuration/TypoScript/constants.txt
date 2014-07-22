@@ -13,9 +13,9 @@ plugin.tx_easygooglemap {
 	}
 	configuration {
 		#cat=plugin.tx_easygooglemap//a; type=string; label=Latitude: value to center the map. Must be a float number
-		centerMapLatitude = 47.52190
+		centerMapLatitude = 
 		#cat=plugin.tx_easygooglemap//a; type=string; label=Longitude: value to center the map. Must be a float number
-		centerMapLongitude = 15.41676
+		centerMapLongitude = 
 		#cat=plugin.tx_easygooglemap//a; type=int+; label=zoom: zoom factor
 		zoom = 10
 		#cat=plugin.tx_easygooglemap//a; type=int; label=saturation: map saturation

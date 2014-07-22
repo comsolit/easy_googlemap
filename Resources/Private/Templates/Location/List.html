@@ -10,7 +10,7 @@
 	<script>
 		<![CDATA[
 	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] } ];
-	    var startcenter = new google.maps.LatLng(]]>{settings.centerMapLatitude}<![CDATA[,]]>{settings.centerMapLongitude}<![CDATA[);
+	    var startcenter;
 	    var bounds = new google.maps.LatLngBounds();
 	    var data = [
 			]]><f:for each="{locations}" as="location"><![CDATA[
@@ -25,7 +25,20 @@
 			},
 	        ]]></f:for><![CDATA[
 	    ];
-	
+	        
+	    if(data.length > 1) {
+	    	]]><f:if condition="{settings.centerMapLatitude}"><![CDATA[startcenter = new google.maps.LatLng(]]>{settings.centerMapLatitude}
+	    	<f:if condition="{settings.centerMapLatitude}">
+	    		<![CDATA[,]]>{settings.centerMapLongitude}
+	    	</f:if><![CDATA[);]]></f:if><![CDATA[
+	    	                   
+	    	if(startcenter == null)
+	    		startcenter = data[0]["position"];
+	    } else {
+	    	startcenter = data[0]["position"];
+	    }
+
+
 	    var optionen = {
 	        zoom: ]]>{settings.zoom}<![CDATA[,
 	        center: startcenter,
