@@ -5,11 +5,11 @@
 <f:section name="main">
 	<f:flashMessages />
 
-	<div id="karte" class="" style="height: 380px; width: auto"></div>
+	<div id="tx_easy_googlemap" class="" style="height: 380px; width: auto"></div>
 
 	<script>
 		<![CDATA[
-	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] } ] <f:if condition="{location.icon}">,{settings.additionalmapstyle}</f:if>;
+	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] }, { "featureType": "poi.business", "stylers": [ { "visibility": "off" } ] } ];
 	    var startcenter;
 	    var bounds = new google.maps.LatLngBounds();
 	    var data = [
@@ -45,7 +45,7 @@
 	        styles: MapStyle
 	    };
 	
-	    var map = new google.maps.Map(document.getElementById("karte"), optionen);
+	    var map = new google.maps.Map(document.getElementById("tx_easy_googlemap"), optionen);
 	    var markers = [];
 	
 	    for (var i=0;i<data.length;i++){
