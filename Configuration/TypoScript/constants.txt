@@ -24,5 +24,7 @@ plugin.tx_easygooglemap {
 		gamma = 0.79
 		#cat=plugin.tx_easygooglemap//a; type=string; label=additionalmapstyle: additional map style options
 		additionalmapstyle =
+		
+		cssfile = EXT:easy_googlemap/Resources/Public/css/map.css
 	}
 }

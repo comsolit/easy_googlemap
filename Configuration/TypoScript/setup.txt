@@ -45,6 +45,6 @@ page {
 # Include stylesheets
 page {
 	includeCSS {
-		map = EXT:easy_googlemap/Resources/Public/css/map.css
+		map = {$plugin.tx_easygooglemap.configuration.cssfile}
 	}
 }
