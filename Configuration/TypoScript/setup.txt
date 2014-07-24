@@ -26,8 +26,10 @@ page {
 	includeJSlibs {
 		maps.external = 1
 		maps = http://maps.google.com/maps/api/js?sensor=false
+		maps.excludeFromConcatenation = 1
 		infoBox.external = 1
 		infoBox = http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js
+		infoBox.excludeFromConcatenation = 1
 	}
 }
 
