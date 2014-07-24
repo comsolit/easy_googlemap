@@ -12,6 +12,12 @@ plugin.tx_easygooglemap {
 		storagePid = 
 	}
 	configuration {
+		#cat=plugin.tx_easygooglemap//a; type=string; label=height: map height
+		height = 350px
+		#cat=plugin.tx_easygooglemap//a; type=string; label=width: map width
+		width = auto
+		#cat=plugin.tx_easygooglemap//a; type=string; label=cssfile: css file with map styling
+		cssfile = EXT:easy_googlemap/Resources/Public/css/map.css
 		#cat=plugin.tx_easygooglemap//a; type=string; label=Latitude: value to center the map. Must be a float number
 		centerMapLatitude = 
 		#cat=plugin.tx_easygooglemap//a; type=string; label=Longitude: value to center the map. Must be a float number
@@ -24,7 +30,5 @@ plugin.tx_easygooglemap {
 		gamma = 0.79
 		#cat=plugin.tx_easygooglemap//a; type=string; label=additionalmapstyle: additional map style options
 		additionalmapstyle =
-		
-		cssfile = EXT:easy_googlemap/Resources/Public/css/map.css
 	}
 }

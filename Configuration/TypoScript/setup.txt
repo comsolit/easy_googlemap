@@ -13,12 +13,14 @@ plugin.tx_easygooglemap {
 	}
 	
 	settings {
+		height = 350px
+		width = auto
 		centerMapLatitude = {$plugin.tx_easygooglemap.configuration.centerMapLatitude}
 		centerMapLongitude = {$plugin.tx_easygooglemap.configuration.centerMapLongitude}
 		zoom = {$plugin.tx_easygooglemap.configuration.zoom}
 		saturation = {$plugin.tx_easygooglemap.configuration.saturation}
 		gamma = {$plugin.tx_easygooglemap.configuration.gamma}
-		additionalmapstyle = {$plugin.tx_easygooglemap.configuration.additionalmapstyle}
+		additionalmapstyle = {$plugin.tx_easygooglemap.configuration.additionalmapstyle}	
 	}
 }
 
