@@ -18,6 +18,7 @@ plugin.tx_easygooglemap {
 		zoom = {$plugin.tx_easygooglemap.configuration.zoom}
 		saturation = {$plugin.tx_easygooglemap.configuration.saturation}
 		gamma = {$plugin.tx_easygooglemap.configuration.gamma}
+		additionalmapstyle = {$plugin.tx_easygooglemap.configuration.additionalmapstyle}
 	}
 }
 

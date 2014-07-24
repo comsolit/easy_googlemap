@@ -9,7 +9,7 @@
 
 	<script>
 		<![CDATA[
-	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] } ];
+	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] } ] <f:if condition="{location.icon}">,{settings.additionalmapstyle}</f:if>;
 	    var startcenter;
 	    var bounds = new google.maps.LatLngBounds();
 	    var data = [

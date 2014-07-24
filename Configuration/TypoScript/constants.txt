@@ -22,5 +22,7 @@ plugin.tx_easygooglemap {
 		saturation = -98
 		#cat=plugin.tx_easygooglemap//a; type=string; label=gamma: map gamma
 		gamma = 0.79
+		#cat=plugin.tx_easygooglemap//a; type=string; label=additionalmapstyle: additional map style options
+		additionalmapstyle =
 	}
 }
