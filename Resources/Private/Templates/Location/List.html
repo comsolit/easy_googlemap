@@ -9,7 +9,7 @@
 
 	<script>
 		<![CDATA[
-	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] }, { "featureType": "poi.business", "stylers": [ { "visibility": "off" } ] } ];
+	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] }, { "featureType": "]]>{settings.fadeoutcats}<![CDATA[", "stylers": [ { "visibility": "off" } ] } ];
 	    var startcenter;
 	    var bounds = new google.maps.LatLngBounds();
 	    var data = [
@@ -54,13 +54,16 @@
 	            map: map,
 	            clickable: data[i].clickable,
 	            url: data[i].link,
-	            icon: data[i].icon
+	             icon: {
+		            url: data[i].icon,
+		            anchor: new google.maps.Point(]]>{settings.anchorpositionx}<![CDATA[, ]]>{settings.anchorpositiony}<![CDATA[),
+        		}
 	        });
 	
 	       infobox = new InfoBox({
 	             content: data[i].title,
 	             disableAutoPan: false,
-	             pixelOffset: new google.maps.Size(0, 0),
+	             pixelOffset: new google.maps.Size(15, -20),
 	             infoBoxClearance: new google.maps.Size(1, 1),
 	            closeBoxMargin: "-10px -60px 10px 10px"
 	        }).open(map, markers[i]);

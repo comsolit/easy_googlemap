@@ -8,27 +8,31 @@ plugin.tx_easygooglemap {
 		layoutRootPath = EXT:easy_googlemap/Resources/Private/Layouts/
 	}
 	persistence {
-		# cat=plugin.tx_easygooglemap//a; type=string; label=Default storage PID
+		# cat=plugin.tx_easygooglemap//a; type=string; label=Storage PID, Page with the Map Records PID
 		storagePid = 
 	}
 	configuration {
-		#cat=plugin.tx_easygooglemap//a; type=string; label=height: map height
+		#cat=plugin.tx_easygooglemap//a; type=string; label=Map height: Standard is 350px
 		height = 350px
-		#cat=plugin.tx_easygooglemap//a; type=string; label=width: map width
+		#cat=plugin.tx_easygooglemap//a; type=string; label=Map width: Standard is auto
 		width = auto
-		#cat=plugin.tx_easygooglemap//a; type=string; label=cssfile: css file with map styling
+		#cat=plugin.tx_easygooglemap//a; type=string; label=External CSS File: for styling of the Map
 		cssfile = EXT:easy_googlemap/Resources/Public/css/map.css
-		#cat=plugin.tx_easygooglemap//a; type=string; label=Latitude: value to center the map. Must be a float number
+		#cat=plugin.tx_easygooglemap//a; type=string; label=Map Start Latitude: value to center the map. Must be a float number
 		centerMapLatitude = 
-		#cat=plugin.tx_easygooglemap//a; type=string; label=Longitude: value to center the map. Must be a float number
+		#cat=plugin.tx_easygooglemap//a; type=string; label=Map Start Longitude: value to center the map. Must be a float number
 		centerMapLongitude = 
-		#cat=plugin.tx_easygooglemap//a; type=int+; label=zoom: zoom factor
+		#cat=plugin.tx_easygooglemap//a; type=int+; label=Zoom: must be a number
 		zoom = 10
-		#cat=plugin.tx_easygooglemap//a; type=int; label=saturation: map saturation
+		#cat=plugin.tx_easygooglemap//a; type=int; label=Saturation: Map style saturation 
 		saturation = -98
-		#cat=plugin.tx_easygooglemap//a; type=string; label=gamma: map gamma
+		#cat=plugin.tx_easygooglemap//a; type=string; label=Gamma: map gamma value
 		gamma = 0.79
-		#cat=plugin.tx_easygooglemap//a; type=string; label=additionalmapstyle: additional map style options
-		additionalmapstyle =
+		#cat=plugin.tx_easygooglemap//a; type=html; label=fadeout Categories: fade out points of business for example (poi.business)
+		fadeoutcats = 
+		#cat=plugin.tx_easygooglemap//a; type=html; label=Anchor Position X: manual adjust x position of anhor (number)
+		anchorpositionx = 
+		#cat=plugin.tx_easygooglemap//a; type=html; label=Anchor Position Y: manual adjust y position of anhor (number)
+		anchorpositiony = 
 	}
 }
