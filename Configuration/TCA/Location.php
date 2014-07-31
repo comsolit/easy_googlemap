@@ -108,7 +108,7 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'tx_float6,required'
+				'eval' => 'required'
 			),
 		),
 		'latitude' => array(
@@ -117,7 +117,7 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'tx_float6,required'
+				'eval' => 'required'
 			),
 		),
 		'icon' => array(
