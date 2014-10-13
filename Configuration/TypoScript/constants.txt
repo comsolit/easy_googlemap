@@ -29,7 +29,7 @@ plugin.tx_easygooglemap {
 		#cat=plugin.tx_easygooglemap//a; type=string; label=Gamma: map gamma value
 		gamma = 0.79
 		#cat=plugin.tx_easygooglemap//a; type=html; label=fadeout Categories: fade out points of business for example (poi.business)
-		fadeoutcats = 
+		fadeoutcats = poi.business
 		#cat=plugin.tx_easygooglemap//a; type=html; label=Anchor Position X: manual adjust x position of anhor (number)
 		anchorpositionx = 
 		#cat=plugin.tx_easygooglemap//a; type=html; label=Anchor Position Y: manual adjust y position of anhor (number)
