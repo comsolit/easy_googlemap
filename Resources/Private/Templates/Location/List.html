@@ -3,10 +3,37 @@
 <f:layout name="Default" />
 
 <f:section name="main">
+	<f:debug>{all}</f:debug>
 	<f:flashMessages />
 
 	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>
+	
 
+	<map:pageRenderer.addJsFooterInlineCode name="easy_googlemap">
+		jQuery(document).ready(function() {
+			var settings = {
+				saturation: 		<f:format.raw value="{settings.saturation}" />,
+				gamma: 				<f:format.raw value="{settings.gamma}" />,
+				fadeoutcats: 	   "<f:format.raw value="{settings.fadeoutcats}" />",
+				centerMapLatitude: "<f:format.raw value="{settings.centerMapLatitude}" />",
+				zoom: 				<f:format.raw value="{settings.zoom}" />,
+				mapTypeId: 			google.maps.MapTypeId.ROADMAP
+			};
+			
+			var locations = [];
+			
+			<f:for each="{locations}" as="location">
+				var location = {};
+				location.title = "<f:format.raw value="{location.title}" />";
+				location.longitude = "<f:format.raw value="{location.longitude}" />";
+				location.latitude = "<f:format.raw value="{location.latitude}" />";
+				location.link = "<f:format.raw value="{location.link}" />";
+				location.icon = "uploads/tx_easygooglemap/" + "<f:format.raw value="{location.icon}" />";
+				locations.push(location);
+			</f:for>
+		});
+	</map:pageRenderer.addJsFooterInlineCode>
+	
 	<script>
 		<![CDATA[
 	    var MapStyle = [ { stylers: [ { saturation: ]]>{settings.saturation}<![CDATA[ }, { gamma: ]]>{settings.gamma}<![CDATA[ } ] }, { "featureType": "]]>{settings.fadeoutcats}<![CDATA[", "stylers": [ { "visibility": "off" } ] } ];
