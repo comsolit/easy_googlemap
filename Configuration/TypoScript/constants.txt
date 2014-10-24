@@ -1,3 +1,9 @@
+ cat=plugin.tx_easygooglemap/general/010; type=boolean; label= Include JQuery?: You can enable or disable JQuery in your project
+plugin.tx_easygooglemap.includeJquery = 1
+
+# cat=plugin.tx_easygooglemap/general/010; type=string; label= JQuery Source: Change jQuery Source - per default it will be loaded from jquery.com
+plugin.tx_easygooglemap.jquery = jquery-2.1.1.min.js
+
 plugin.tx_easygooglemap {
 	view {
 		# cat=plugin.tx_easygooglemap/file; type=string; label=Path to template root (FE)
@@ -31,8 +37,8 @@ plugin.tx_easygooglemap {
 		#cat=plugin.tx_easygooglemap//a; type=html; label=fadeout Categories: fade out points of business for example (poi.business)
 		fadeoutcats = poi.business
 		#cat=plugin.tx_easygooglemap//a; type=html; label=Anchor Position X: manual adjust x position of anhor (number)
-		anchorpositionx = 
+		anchorpositionx = 0
 		#cat=plugin.tx_easygooglemap//a; type=html; label=Anchor Position Y: manual adjust y position of anhor (number)
-		anchorpositiony = 
+		anchorpositiony = 0
 	}
 }
