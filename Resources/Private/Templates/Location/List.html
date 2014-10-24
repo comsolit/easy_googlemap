@@ -22,7 +22,7 @@
 			};
 
 			var locations = [];
-
+			
 			<f:for each="{locations}" as="location">
 				var location = {
 					title: "<f:format.raw value="{location.title}" />",
@@ -35,11 +35,17 @@
 				location.position = new google.maps.LatLng(location.latitude, location.longitude);
 				locations.push(location);
 			</f:for>
+			
+			if(locations.length > 0) {
+				if(settings.centerMapLatitude == "") settings.centerMapLatitude = locations[0].latitude;
+				if(settings.centerMapLongitude == "") settings.centerMapLongitude = locations[0].longitude;
+			}
+			
 
 			var mapOptions = {
 				center: {
-					lat: locations[0].latitude,
-					lng: locations[0].longitude
+					lat: settings.centerMapLatitude,
+					lng: settings.centerMapLongitude
 				},
 				zoom: settings.zoom,
 				mapTypeId: settings.mapTypeId,
