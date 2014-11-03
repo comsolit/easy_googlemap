@@ -4,8 +4,8 @@
 
 .infoBox {
 	overflow: hidden;
-	margin-top: 0px;
-	color: 0000555;
+	margin-top: 0;
+	color: #000555;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	padding: 5px;
@@ -14,5 +14,5 @@
 	border-radius: 5px;
 	background-color: #ffffff;
 	font-weight: bold;
-	border: 1px 0000555 solid;
+	border: 1px #000555 solid;
 }
