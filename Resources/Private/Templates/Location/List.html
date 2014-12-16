@@ -9,15 +9,15 @@
 	<map:addJsFooterInlineCode name="easy_googlemap">
 		jQuery(document).ready(function() {
 			var settings = {
-				saturation: 		 <f:format.raw value="{settings.saturation}" />,
-				gamma: 				 <f:format.raw value="{settings.gamma}" />,
-				fadeOutCats: 		"<f:format.raw value="{settings.fadeoutcats}" />",
-				centerMapLatitude:  "<f:format.raw value="{settings.centerMapLatitude}" />",
-				centerMapLongitude: "<f:format.raw value="{settings.centerMapLongitude}" />",
-				zoom: 				 <f:format.raw value="{settings.zoom}" />,
+				saturation:<f:format.raw>{settings.saturation}</f:format.raw>,
+				gamma: 				<f:format.raw>{settings.gamma}</f:format.raw>,
+				fadeOutCats: 		"<f:format.raw>{settings.fadeoutcats}</f:format.raw>",
+				centerMapLatitude:  "<f:format.raw>{settings.centerMapLatitude}</f:format.raw>",
+				centerMapLongitude: "<f:format.raw>{settings.centerMapLongitude}</f:format.raw>",
+				zoom: 				 <f:format.raw>{settings.zoom}</f:format.raw>,
 				mapTypeId: 			 google.maps.MapTypeId.ROADMAP,
-				anchorPositionX: 	 <f:format.raw value="{settings.anchorpositionx}" />,
-				anchorPositionY: 	 <f:format.raw value="{settings.anchorpositiony}" />
+				anchorPositionX: 	 <f:format.raw>{settings.anchorpositionx}</f:format.raw>,
+				anchorPositionY: 	 <f:format.raw>{settings.anchorpositiony}</f:format.raw>
 			};
 
 			var locations = [];
