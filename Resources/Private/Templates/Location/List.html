@@ -1,13 +1,12 @@
-{namespace map=Tx_EasyGooglemap_ViewHelpers}
+{namespace map=TYPO3\EasyGooglemap\ViewHelpers\PageRenderer}
 
 <f:layout name="Default" />
 
 <f:section name="main">
-	<f:flashMessages />
 
 	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>
 
-	<map:pageRenderer.addJsFooterInlineCode name="easy_googlemap">
+	<map:addJsFooterInlineCode name="easy_googlemap">
 		jQuery(document).ready(function() {
 			var settings = {
 				saturation: 		 <f:format.raw value="{settings.saturation}" />,
@@ -22,7 +21,7 @@
 			};
 
 			var locations = [];
-			
+
 			<f:for each="{locations}" as="location">
 				var location = {
 					title: "<f:format.raw value="{location.title}" />",
@@ -34,7 +33,7 @@
 				};
 				location.position = new google.maps.LatLng(location.latitude, location.longitude);
 				locations.push(location);
-			</f:for>			
+			</f:for>
 
 			var mapOptions = {
 				zoom: settings.zoom,
@@ -54,14 +53,14 @@
 					}
 				]
 			};
-			
+
 			if(settings.centerMapLatitude != "" && settings.centerMapLongitude != "") {
 				mapOptions.center = {
 					lat: settings.centerMapLatitude,
 					lng: settings.centerMapLongitude
 				};
 			}
-			
+
 
 			var map = new google.maps.Map(document.getElementById("tx_easy_googlemap"), mapOptions);
 
@@ -89,17 +88,17 @@
 					infoBoxClearance: new google.maps.Size(1, 1),
 					closeBoxMargin: "-10px -60px 10px 10px"
 				}).open(map, marker);
-				
+
 				new google.maps.event.addListener(marker, 'click', function() {
 					window.open(marker.url);
 				});
-				
+
 				bounds.extend(location.position);
 			});
-			
+
 			if(markers.length > 1) {
 				map.fitBounds(bounds);
 			}
 		});
-	</map:pageRenderer.addJsFooterInlineCode>
+	</map:addJsFooterInlineCode>
 </f:section>
