@@ -37,7 +37,7 @@
 				location.position = new google.maps.LatLng(location.latitude, location.longitude);
 				locations.push(location);
 			</f:for>
-			
+								
 			mapOptions = {
 				zoom: settings.zoom,
 				mapTypeId: settings.mapTypeId,
@@ -47,15 +47,18 @@
 							{ saturation: settings.saturation },
 							{ gamma: settings.gamma }
 						]
-					},
-					{
-						featureType: settings.fadeOutCats,
-						stylers: [
-							{ "visibility": "off" }
-						]
 					}
 				]
 			};
+			
+			if(settings.fadeOutCats || settings.fadeOutCats != '') {
+				mapOptions.styles.push({
+					featureType: settings.fadeOutCats,
+						stylers: [
+							{ "visibility": "off" }
+						]
+				});
+			}
 			
 			if(locations.length > 0) {	
 				var bounds;				
