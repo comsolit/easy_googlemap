@@ -31,7 +31,7 @@
 					latitude: parseFloat("<f:format.raw value="{location.latitude}" />"),
 					longitude: parseFloat("<f:format.raw value="{location.longitude}" />"),
 					link: "<f:format.raw value="{location.link}" />",
-					icon: "uploads/tx_easygooglemap/" + "<f:format.raw value="{location.icon}" />",
+					icon: "<f:format.raw value="{location.icon}" />",
 					clickable: true
 				};
 				location.position = new google.maps.LatLng(location.latitude, location.longitude);
@@ -104,20 +104,10 @@
 				var markers = [];
 				var bounds = new google.maps.LatLngBounds();
 
-				locations.forEach(function(location) {				
-					var marker = new google.maps.Marker({
-						map: map,
-						position: location.position,
-						clickable: location.clickable,
-						url: location.link,
-						icon: {
-							url: location.icon,
-							anchor: new google.maps.Point(settings.anchorPositionX, settings.anchorPositionY)
-						}
-					});
-
+				locations.forEach(function(location) {	
+					var marker = createMarker(location);
 					markers.push(marker);
-
+					
 					infobox = new InfoBox({
 						content: location.title,
 						disableAutoPan: false,
@@ -135,6 +125,50 @@
 
 				if(markers.length > 1) {
 					map.fitBounds(bounds);
+				}
+				
+				function createMarker(loc) {	
+					var icon = null;
+					
+					if(loc.icon && loc.icon != '') {
+						icon = {
+							url: "uploads/tx_easygooglemap/" + loc.icon,
+							anchor: new google.maps.Point(settings.anchorPositionX, settings.anchorPositionY)
+						}
+					}
+							
+					var newMarker = new google.maps.Marker({
+						map: map,
+						position: loc.position,
+						clickable: loc.clickable,
+						url: loc.link,
+						icon: icon
+					});
+					
+				
+					/*if(loc.icon && loc.icon != '') {
+						
+					
+						newMarker = new google.maps.Marker({
+							map: map,
+							position: loc.position,
+							clickable: loc.clickable,
+							url: loc.link,
+							icon: {
+								url: "uploads/tx_easygooglemap/" + loc.icon,
+								anchor: new google.maps.Point(settings.anchorPositionX, settings.anchorPositionY)
+							}
+						});
+					} else {
+						newMarker = new google.maps.Marker({
+							map: map,
+							position: loc.position,
+							clickable: loc.clickable,
+							url: loc.link
+						});
+					}*/
+					
+					return newMarker;
 				}
 			}
 		});
