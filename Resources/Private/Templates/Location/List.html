@@ -3,11 +3,14 @@
 <f:layout name="Default" />
 
 <f:section name="main">
+	<f:debug>{all}</f:debug>
 
-	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>
+	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>	
 
 	<map:addJsFooterInlineCode name="easy_googlemap">
 		jQuery(document).ready(function() {
+			var map = null;
+		
 			var settings = {
 				saturation:<f:format.raw>{settings.saturation}</f:format.raw>,
 				gamma: 				<f:format.raw>{settings.gamma}</f:format.raw>,
@@ -34,8 +37,8 @@
 				location.position = new google.maps.LatLng(location.latitude, location.longitude);
 				locations.push(location);
 			</f:for>
-
-			var mapOptions = {
+			
+			mapOptions = {
 				zoom: settings.zoom,
 				mapTypeId: settings.mapTypeId,
 				styles: [
@@ -53,51 +56,83 @@
 					}
 				]
 			};
-
-			if(settings.centerMapLatitude != "" && settings.centerMapLongitude != "") {
+			
+			if(locations.length > 0) {	
+				var bounds;				
+					
+				if(settings.centerMapLatitude != "" && settings.centerMapLongitude != "") {
+					mapOptions.center = {
+						lat: settings.centerMapLatitude,
+						lng: settings.centerMapLongitude
+					};
+					initMap(mapOptions);
+				} else {
+					mapOptions.center = {
+						lat: locations[0].latitude,
+						lng: locations[0].longitude
+					};
+					if(locations.length > 1) {
+						bounds = new google.maps.LatLngBounds();
+						locations.forEach(function(location) {
+							bounds.extend(location.position);
+						});
+					}
+				}
+				
+				initMap(bounds);
+				setMarkers();				
+			} else {
+				mapOptions.zoom = 7;
 				mapOptions.center = {
-					lat: settings.centerMapLatitude,
-					lng: settings.centerMapLongitude
+					lat: 46.818188,
+					lng: 8.227512
 				};
+				initMap();
+			}
+			
+			function initMap(bounds) {
+				map = new google.maps.Map(document.getElementById("tx_easy_googlemap"), mapOptions);
+				if(bounds) {
+					map.fitBounds(bounds);
+				}				
 			}
 
+			function setMarkers() {
+				var markers = [];
+				var bounds = new google.maps.LatLngBounds();
 
-			var map = new google.maps.Map(document.getElementById("tx_easy_googlemap"), mapOptions);
+				locations.forEach(function(location) {				
+					var marker = new google.maps.Marker({
+						map: map,
+						position: location.position,
+						clickable: location.clickable,
+						url: location.link,
+						icon: {
+							url: location.icon,
+							anchor: new google.maps.Point(settings.anchorPositionX, settings.anchorPositionY)
+						}
+					});
 
-			var markers = [];
-			var bounds = new google.maps.LatLngBounds();
+					markers.push(marker);
 
-			locations.forEach(function(location) {
-				var marker = new google.maps.Marker({
-					map: map,
-					position: location.position,
-					clickable: location.clickable,
-					url: location.link,
-					icon: {
-						url: location.icon,
-						anchor: new google.maps.Point(settings.anchorPositionX, settings.anchorPositionY)
-					}
+					infobox = new InfoBox({
+						content: location.title,
+						disableAutoPan: false,
+						pixelOffset: new google.maps.Size(15, -20),
+						infoBoxClearance: new google.maps.Size(1, 1),
+						closeBoxMargin: "-10px -60px 10px 10px"
+					}).open(map, marker);
+
+					new google.maps.event.addListener(marker, 'click', function() {
+						window.open(marker.url);
+					});
+
+					bounds.extend(location.position);
 				});
 
-				markers.push(marker);
-
-				infobox = new InfoBox({
-					content: location.title,
-					disableAutoPan: false,
-					pixelOffset: new google.maps.Size(15, -20),
-					infoBoxClearance: new google.maps.Size(1, 1),
-					closeBoxMargin: "-10px -60px 10px 10px"
-				}).open(map, marker);
-
-				new google.maps.event.addListener(marker, 'click', function() {
-					window.open(marker.url);
-				});
-
-				bounds.extend(location.position);
-			});
-
-			if(markers.length > 1) {
-				map.fitBounds(bounds);
+				if(markers.length > 1) {
+					map.fitBounds(bounds);
+				}
 			}
 		});
 	</map:addJsFooterInlineCode>
