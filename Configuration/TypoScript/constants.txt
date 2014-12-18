@@ -1,44 +1,48 @@
- cat=plugin.tx_easygooglemap/general/010; type=boolean; label= Include JQuery?: You can enable or disable JQuery in your project
+# customsubcategory=mapSetup=Map setup
+# customsubcategory=mapStyle=Map styling
+# customsubcategory=mapPersistence=Persistence
+
+# cat=plugin.tx_easygooglemap/enable/010; type=boolean; label= Include JQuery?: You can enable or disable JQuery in your project
 plugin.tx_easygooglemap.includeJquery = 1
 
-# cat=plugin.tx_easygooglemap/general/010; type=string; label= JQuery Source: Change jQuery Source - per default it will be loaded from jquery.com
+# cat=plugin.tx_easygooglemap/enable/010; type=string; label= JQuery Source: Change jQuery Source - per default it will be loaded from jquery.com
 plugin.tx_easygooglemap.jquery = jquery-2.1.1.min.js
 
 plugin.tx_easygooglemap {
 	view {
-		# cat=plugin.tx_easygooglemap/file; type=string; label=Path to template root (FE)
+		# cat=plugin.tx_easygooglemap/file; type=string; label= String. Path to template root (FE).
 		templateRootPath = EXT:easy_googlemap/Resources/Private/Templates/
-		# cat=plugin.tx_easygooglemap/file; type=string; label=Path to template partials (FE)
+		# cat=plugin.tx_easygooglemap/file; type=string; label= String. Path to template partials (FE).
 		partialRootPath = EXT:easy_googlemap/Resources/Private/Partials/
-		# cat=plugin.tx_easygooglemap/file; type=string; label=Path to template layouts (FE)
+		# cat=plugin.tx_easygooglemap/file; type=string; label= String. Path to template layouts (FE).
 		layoutRootPath = EXT:easy_googlemap/Resources/Private/Layouts/
 	}
 	persistence {
-		# cat=plugin.tx_easygooglemap//a; type=string; label=Storage PID, Page with the Map Records PID
+		# cat=plugin.tx_easygooglemap/mapPersistence/010; type=string; label= Storage PID: PageId of page containing locations.
 		storagePid = 
 	}
 	configuration {
-		#cat=plugin.tx_easygooglemap//a; type=string; label=Map height: Standard is 350px
+		#cat=plugin.tx_easygooglemap/dims/010; type=string; label= height: String. The height of the map (e.g. 400px). Default: 350px.
 		height = 350px
-		#cat=plugin.tx_easygooglemap//a; type=string; label=Map width: Standard is auto
+		#cat=plugin.tx_easygooglemap/dims/010; type=string; label= width: String. The width of the map (e.g. 900px). Default: auto.
 		width = auto
-		#cat=plugin.tx_easygooglemap//a; type=string; label=External CSS File: for styling of the Map
+		#cat=plugin.tx_easygooglemap/file/a; type=string; label= cssfile: String. Path to css file.
 		cssfile = EXT:easy_googlemap/Resources/Public/css/map.css
-		#cat=plugin.tx_easygooglemap//a; type=string; label=Map Start Latitude: value to center the map. Must be a float number
+		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= centerMapLatitude: Decimal. Initial latitude (e.g. 47.6464401).
 		centerMapLatitude = 
-		#cat=plugin.tx_easygooglemap//a; type=string; label=Map Start Longitude: value to center the map. Must be a float number
+		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= centerMapLongitude: Decimal. Initial longitude (e.g. 8.175880).
 		centerMapLongitude = 
-		#cat=plugin.tx_easygooglemap//a; type=int+; label=Zoom: must be a number
-		zoom = 10
-		#cat=plugin.tx_easygooglemap//a; type=int; label=Saturation: Map style saturation 
+		#cat=plugin.tx_easygooglemap/mapSetup/a; type=int+; label= zoom: Integer [0 - 18]. Initial map zoom level. An integer value ranging from 0 (zoomed out) to 18 (zoomed in) inclusive. Default: 8.
+		zoom = 8
+		#cat=plugin.tx_easygooglemap/mapStyle/a; type=int; label= saturation: Integer [0 - 100]. Shifts the saturation of colors by a percentage of the original value if decreasing and a percentage of the remaining value if increasing. Default: -98.
 		saturation = -98
-		#cat=plugin.tx_easygooglemap//a; type=string; label=Gamma: map gamma value
+		#cat=plugin.tx_easygooglemap/mapStyle/a; type=string; label= gamma: Decimal. Modifies the gamma by raising the lightness to the given power. Valid values: [0.01, 10], with 1.0 representing no change. Default: 0.79.
 		gamma = 0.79
-		#cat=plugin.tx_easygooglemap//a; type=html; label=fadeout Categories: fade out points of business for example (poi.business)
+		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= fadeoutcats: String. A comma-separated list of categories to fade out (e.g. poi.business, road.highway, ...).
 		fadeoutcats = 
-		#cat=plugin.tx_easygooglemap//a; type=html; label=Anchor Position X: manual adjust x position of anhor (number)
+		#cat=plugin.tx_easygooglemap/dims/a; type=int; label= anchorpositionx: Integer. The horizontal position at which to anchor an image in correspondance to the location of the marker on the map. Default: 0.
 		anchorpositionx = 0
-		#cat=plugin.tx_easygooglemap//a; type=html; label=Anchor Position Y: manual adjust y position of anhor (number)
+		#cat=plugin.tx_easygooglemap/dims/a; type=int; label= anchorpositiony: Integer. The vertical position at which to anchor an image in correspondance to the location of the marker on the map. Default: 0.
 		anchorpositiony = 0
 	}
 }
