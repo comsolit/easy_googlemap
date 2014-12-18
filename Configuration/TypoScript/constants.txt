@@ -22,27 +22,27 @@ plugin.tx_easygooglemap {
 		storagePid = 
 	}
 	configuration {
-		#cat=plugin.tx_easygooglemap/dims/010; type=string; label= height: String. The height of the map (e.g. 400px). Default: 350px.
+		#cat=plugin.tx_easygooglemap/dims/010; type=string; label= Map height: String. The height of the map (e.g. 400px). Default: 350px.
 		height = 350px
-		#cat=plugin.tx_easygooglemap/dims/010; type=string; label= width: String. The width of the map (e.g. 900px). Default: auto.
+		#cat=plugin.tx_easygooglemap/dims/010; type=string; label= Map width: String. The width of the map (e.g. 900px). Default: auto.
 		width = auto
-		#cat=plugin.tx_easygooglemap/file/a; type=string; label= cssfile: String. Path to css file.
+		#cat=plugin.tx_easygooglemap/file/a; type=string; label= External CSS file: String. Path to css file.
 		cssfile = EXT:easy_googlemap/Resources/Public/css/map.css
-		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= centerMapLatitude: Decimal. Initial latitude (e.g. 47.6464401).
+		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= Initial latitude: Decimal. Sets the initial latitude (e.g. 47.6464401).
 		centerMapLatitude = 
-		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= centerMapLongitude: Decimal. Initial longitude (e.g. 8.175880).
+		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= Initial longitude: Decimal. Sets the initial longitude (e.g. 8.175880).
 		centerMapLongitude = 
-		#cat=plugin.tx_easygooglemap/mapSetup/a; type=int+; label= zoom: Integer [0 - 18]. Initial map zoom level. An integer value ranging from 0 (zoomed out) to 18 (zoomed in) inclusive. Default: 8.
+		#cat=plugin.tx_easygooglemap/mapSetup/a; type=int+; label= Initial zoom: Integer [0 - 18]. Initial map zoom level. An integer value ranging from 0 (zoomed out) to 18 (zoomed in) inclusive. Default: 8.
 		zoom = 8
-		#cat=plugin.tx_easygooglemap/mapStyle/a; type=int; label= saturation: Integer [0 - 100]. Shifts the saturation of colors by a percentage of the original value if decreasing and a percentage of the remaining value if increasing. Default: -98.
+		#cat=plugin.tx_easygooglemap/mapStyle/a; type=int; label= Saturation: Integer [0 - 100]. Shifts the saturation of colors by a percentage of the original value if decreasing and a percentage of the remaining value if increasing. Default: -98.
 		saturation = -98
-		#cat=plugin.tx_easygooglemap/mapStyle/a; type=string; label= gamma: Decimal. Modifies the gamma by raising the lightness to the given power. Valid values: [0.01, 10], with 1.0 representing no change. Default: 0.79.
+		#cat=plugin.tx_easygooglemap/mapStyle/a; type=string; label= Gamma: Decimal. Modifies the gamma by raising the lightness to the given power. Valid values: [0.01, 10], with 1.0 representing no change. Default: 0.79.
 		gamma = 0.79
-		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= fadeoutcats: String. A comma-separated list of categories to fade out (e.g. poi.business, road.highway, ...).
+		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= Hidden categories: String. A comma-separated list of categories to fade out (e.g. poi.business, road.highway, ...).
 		fadeoutcats = 
-		#cat=plugin.tx_easygooglemap/dims/a; type=int; label= anchorpositionx: Integer. The horizontal position at which to anchor an image in correspondance to the location of the marker on the map. Default: 0.
+		#cat=plugin.tx_easygooglemap/dims/a; type=int; label= Anchor position X: Integer. The horizontal position at which to anchor an image in correspondance to the location of the marker on the map. Default: 0.
 		anchorpositionx = 0
-		#cat=plugin.tx_easygooglemap/dims/a; type=int; label= anchorpositiony: Integer. The vertical position at which to anchor an image in correspondance to the location of the marker on the map. Default: 0.
+		#cat=plugin.tx_easygooglemap/dims/a; type=int; label= Anchor position Y: Integer. The vertical position at which to anchor an image in correspondance to the location of the marker on the map. Default: 0.
 		anchorpositiony = 0
 	}
 }
