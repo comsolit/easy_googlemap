@@ -34,7 +34,7 @@ plugin.tx_easygooglemap {
 		centerMapLongitude = 
 		#cat=plugin.tx_easygooglemap/mapSetup/a; type=int+; label= Initial zoom: Integer [0 - 18]. Initial map zoom level. An integer value ranging from 0 (zoomed out) to 18 (zoomed in) inclusive. Default: 8.
 		zoom = 8
-		#cat=plugin.tx_easygooglemap/mapStyle/a; type=int; label= Saturation: Integer [0 - 100]. Shifts the saturation of colors by a percentage of the original value if decreasing and a percentage of the remaining value if increasing. Default: -98.
+		#cat=plugin.tx_easygooglemap/mapStyle/a; type=int; label= Saturation: Integer [-100 - 100]. Shifts the saturation of colors by a percentage of the original value if decreasing and a percentage of the remaining value if increasing. Default: -98.
 		saturation = -98
 		#cat=plugin.tx_easygooglemap/mapStyle/a; type=string; label= Gamma: Decimal. Modifies the gamma by raising the lightness to the given power. Valid values: [0.01, 10], with 1.0 representing no change. Default: 0.79.
 		gamma = 0.79
