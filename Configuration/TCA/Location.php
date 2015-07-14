@@ -107,8 +107,8 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 			'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.longitude',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
-				'eval' => 'required'
+				'size' => 10,
+				'eval' => 'required, tx_easygooglemap_coordinate'
 			),
 		),
 		'latitude' => array(
@@ -116,8 +116,8 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 			'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.latitude',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
-				'eval' => 'required'
+				'size' => 10,
+				'eval' => 'required, tx_easygooglemap_coordinate'
 			),
 		),
 		'icon' => array(
