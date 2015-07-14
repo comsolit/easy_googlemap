@@ -140,9 +140,8 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 				'type' => 'input',
 				'size'     => '15',
 				'max'      => '255',
-				'checkbox' => '',
 				'size' => 30,
-				'eval' => 'trim,required',
+				'eval' => 'trim, required, tx_easygooglemap_link',
 				'softref' => 'getDomain'
 			),
 		),
