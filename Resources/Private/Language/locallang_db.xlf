@@ -16,6 +16,18 @@
 			<trans-unit id="tx_easygooglemap_domain_model_location.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.street">
+				<source>Street and Number</source>
+			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.postal_code">
+				<source>Postal Code</source>
+			</trans-unit>
 			<trans-unit id="tx_easygooglemap_domain_model_location.icon">
 				<source>Icon</source>
 			</trans-unit>
