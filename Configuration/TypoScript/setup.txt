@@ -29,7 +29,7 @@ plugin.tx_easygooglemap {
 # Include javascript files
 page {
 	includeJSlibs {		
-		maps = http://maps.google.com/maps/api/js?sensor=false
+		maps = http://maps.google.com/maps/api/js?v=3&sensor=false
 		maps {
 			external = 1
 			excludeFromConcatenation = 1
