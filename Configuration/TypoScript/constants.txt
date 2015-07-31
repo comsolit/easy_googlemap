@@ -5,7 +5,7 @@
 # cat=plugin.tx_easygooglemap/enable/010; type=boolean; label= Include JQuery?: You can enable or disable JQuery in your project
 plugin.tx_easygooglemap.includeJquery = 1
 
-# cat=plugin.tx_easygooglemap/enable/010; type=string; label= JQuery Source: Change jQuery Source - per default it will be loaded from jquery.com
+# cat=plugin.tx_easygooglemap/enable/010; type=string; label= JQuery Source: Change jQuery Source - per default it will be loaded from extension.
 plugin.tx_easygooglemap.jquery = jquery-2.1.4.min.js
 
 plugin.tx_easygooglemap {
