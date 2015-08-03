@@ -65,9 +65,10 @@
 						latitude: event.latLng.lat(),
 						longitude: event.latLng.lng()
 					};
-
 					setMarker(clickedCoordinates);
-					setElementValues(null, clickedCoordinates);
+					getAddressFromCoordinates(clickedCoordinates, function (address){
+						setElementValues(address, clickedCoordinates);
+					});
 				});
 			}
 
@@ -123,7 +124,11 @@
 							addressProperties.push(addressComponents[property]);
 						}
 						addressProperties.forEach(function(property) {
-							var type = property.types[0];
+							if(!property.types){
+								var type = '';
+							}else {
+								var type = property.types[0];
+							}
 							switch(type) {
 							case 'street_number':
 								address.streetNr = property['short_name'];
@@ -135,10 +140,12 @@
 								address.city = property['short_name'];
 								break;
 							case 'country':
-								address.country = property['short_name'];
+								address.country = property['long_name'];
 								break;
 							case 'postal_code':
 								address.zip = property['short_name'];
+								break;
+							case '':
 								break;
 							}
 						});
@@ -155,6 +162,7 @@
 					elements.address.street.val(TYPO3.jQuery.grep([address.street, address.streetNr], Boolean).join(' '));
 					elements.address.city.val(address.city);
 					elements.address.zip.val(address.zip);
+					elements.address.country.val(address.country);
 				}
 				if(coordinates != null) {
 					elements.coordinates.latitude.val(coordinates.latitude);
@@ -245,7 +253,9 @@
 						latitude: event.latLng.lat(),
 						longitude: event.latLng.lng()
 					};
-					setElementValues(null, dragEndCoordinates);
+					getAddressFromCoordinates(dragEndCoordinates, function (address){
+						setElementValues(address, dragEndCoordinates);
+					});
 				});
 			}
 		});

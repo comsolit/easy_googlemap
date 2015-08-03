@@ -4,7 +4,7 @@ window.onload = function(){
       street: 'input[name*="street"]',
       city: 'input[name*="city"]',
       zip: 'input[name*="postal_code"]',
-      country: 'input[name*="country"]',
+      country: 'input[name*="country"]'
     },
     coordinateElements: {
       latitude: 'input[name*="latitude"]',
