@@ -111,14 +111,15 @@
 				locations.forEach(function(location) {	
 					var marker = createMarker(location);
 					markers.push(marker);
-					
-					infobox = new InfoBox({
-						content: location.title,
-						disableAutoPan: false,
-						pixelOffset: new google.maps.Size(15, -20),
-						infoBoxClearance: new google.maps.Size(1, 1),
-						closeBoxMargin: "-10px -60px 10px 10px"
-					}).open(map, marker);
+					if(location.title) {
+						infobox = new InfoBox({
+							content: location.title,
+							disableAutoPan: false,
+							pixelOffset: new google.maps.Size(15, -20),
+							infoBoxClearance: new google.maps.Size(1, 1),
+							closeBoxMargin: "-10px -60px 10px 10px"
+						}).open(map, marker);
+					}
 
 					new google.maps.event.addListener(marker, 'click', function() {
 						window.open(marker.url);
