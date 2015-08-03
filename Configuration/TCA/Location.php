@@ -6,7 +6,7 @@ if (! defined('TYPO3_MODE')) {
 $TCA ['tx_easygooglemap_domain_model_location'] = array (
     'ctrl' => $TCA ['tx_easygooglemap_domain_model_location'] ['ctrl'],
     'interface' => array (
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, longitude, latitude, icon, link'
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, city, country, postal_code, street, longitude, latitude, icon, link'
     ),
     'types' => array (
         '1' => array (

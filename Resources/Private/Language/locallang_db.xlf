@@ -3,7 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2014-06-25T12:12:37Z" product-name="easy_googlemap">
 		<header/>
 		<body>
-
 			<trans-unit id="tx_easygooglemap_domain_model_location">
 				<source>Location</source>
 			</trans-unit>

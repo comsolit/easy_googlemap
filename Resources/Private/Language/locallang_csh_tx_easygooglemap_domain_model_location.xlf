@@ -3,7 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2014-06-25T12:12:37Z" product-name="easy_googlemap">
 		<header/>
 		<body>
-
 			<trans-unit id="longitude.description">
 				<source>Longitude</source>
 			</trans-unit>
@@ -12,6 +11,18 @@
 			</trans-unit>
 			<trans-unit id="title.description">
 				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="city.description">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="country.description">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="postal_code.description">
+				<source>Postal Code</source>
+			</trans-unit>
+			<trans-unit id="street.description">
+				<source>Street and Number</source>
 			</trans-unit>
 			<trans-unit id="icon.description">
 				<source>Icon</source>
