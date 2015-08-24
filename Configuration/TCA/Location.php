@@ -200,12 +200,11 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
             'exclude' => 0,
             'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.link',
             'config' => array (
-                'type' => 'input',
-                'size' => '15',
-                'max' => '255',
-                'size' => 30,
-                'eval' => 'trim, tx_easygooglemap_link',
-                'softref' => 'getDomain'
+                'type' => 'user',
+                'size' => '255',
+                'userFunc' => 'TYPO3\\EasyGooglemap\\Userfuncs\\Tca->urlInput',
+                'parameters' => array(
+                )
             )
         )
     )
