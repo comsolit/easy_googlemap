@@ -6,11 +6,11 @@ if (! defined('TYPO3_MODE')) {
 $TCA ['tx_easygooglemap_domain_model_location'] = array (
     'ctrl' => $TCA ['tx_easygooglemap_domain_model_location'] ['ctrl'],
     'interface' => array (
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, city, country, postal_code, street, longitude, latitude, icon, link'
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, street, postal_code, city, country, longitude, latitude, icon, link'
     ),
     'types' => array (
         '1' => array (
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, city, country, postal_code, street, tx_coordinate_resolver, longitude, latitude, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
+            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, street, postal_code, city, country, tx_coordinate_resolver, longitude, latitude, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
         )
     ),
     'palettes' => array (
@@ -115,24 +115,6 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
                 'eval' => 'trim, required'
             )
         ),
-        'city' => array (
-            'exclude' => 0,
-            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.city',
-            'config' => array (
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            )
-        ),
-        'country' => array (
-            'exclude' => 0,
-            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.country',
-            'config' => array (
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            )
-        ),
         'postal_code' => array (
             'exclude' => 0,
             'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.postal_code',
@@ -142,9 +124,27 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
                 'eval' => 'trim'
             )
         ),
+        'city' => array (
+            'exclude' => 0,
+            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.city',
+            'config' => array (
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            )
+        ),
         'street' => array (
             'exclude' => 0,
             'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.street',
+            'config' => array (
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            )
+        ),
+        'country' => array (
+            'exclude' => 0,
+            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.country',
             'config' => array (
                 'type' => 'input',
                 'size' => 30,

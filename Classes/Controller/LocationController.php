@@ -4,7 +4,7 @@ namespace TYPO3\EasyGooglemap\Controller;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 Andres Lobacovs <info@comsolit.ch>, comsolit AG
+ *  (c) Andres Lobacovs <info@comsolit.com>, comsolit AG
  *  
  *  All rights reserved
  *

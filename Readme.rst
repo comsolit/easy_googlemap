@@ -16,3 +16,5 @@ Features
 #. Fine tuning/configuration of Map (Map categories, anchorposition)
 #. JQuery on/off mode
 #. Styling Map via own CSS file
+
+Support at www.comsolit.com
