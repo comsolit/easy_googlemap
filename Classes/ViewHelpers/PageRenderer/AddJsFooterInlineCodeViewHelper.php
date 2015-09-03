@@ -9,11 +9,9 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
     /**
      *
      * @param string $name
-     * @param string $compress
-     * @param string $forceOnTop
      * @return NULL
      */
-    public function render($name, $compress = FALSE, $forceOnTop = FALSE)
+    public function render($name)
     {
         $pageRenderer = $this->getPageRenderer();
 
