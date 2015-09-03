@@ -18,10 +18,34 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
         $pageRenderer = $this->getPageRenderer();
 
         $block = $this->renderChildren();
-        $pageRenderer->addJsLibrary('googlemap','http://maps.google.com/maps/api/js?v=3&sensor=false');
-        $pageRenderer->addJsLibrary('infobox', 'http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js');
-        $pageRenderer->addCssFile(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath(easy_googlemap) . 'Resources/Public/css/map.css');
+
+        $pageRenderer->addJsLibrary(
+            'googlemap',
+            'http://maps.google.com/maps/api/js?v=3&sensor=false',
+            'text/javascript',
+            false,
+            false,
+            '',
+            true
+        );
+
+        $pageRenderer->addJsLibrary(
+            'infobox',
+            'http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js',
+            'text/javascript',
+            false,
+            false,
+            '',
+            true
+        );
+
+        $pageRenderer->addCssFile(
+            $this->templateVariableContainer->get('settings')['cssfile'] ?:
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath(easy_googlemap) . 'Resources/Public/css/map.css'
+        );
+
         $pageRenderer->addJsFooterInlineCode($name, $block, $compress, $forceOnTop);
+
         return null;
     }
 

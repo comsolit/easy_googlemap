@@ -23,6 +23,7 @@ plugin.tx_easygooglemap {
 		fadeoutcats = {$plugin.tx_easygooglemap.configuration.fadeoutcats}
 		anchorpositionx = {$plugin.tx_easygooglemap.configuration.anchorpositionx}
 		anchorpositiony = {$plugin.tx_easygooglemap.configuration.anchorpositiony}
+		cssfile = {$plugin.tx_easygooglemap.configuration.cssfile}
 	}
 }
 

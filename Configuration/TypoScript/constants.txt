@@ -27,7 +27,7 @@ plugin.tx_easygooglemap {
 		#cat=plugin.tx_easygooglemap/dims/010; type=string; label= Map width: String. The width of the map (e.g. 900px). Default: auto.
 		width = auto
 		#cat=plugin.tx_easygooglemap/file/a; type=string; label= External CSS file: String. Path to css file.
-		cssfile = EXT:easy_googlemap/Resources/Public/css/map.css
+		cssfile = 
 		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= Initial latitude: Decimal. Sets the initial latitude (e.g. 47.6464401).
 		centerMapLatitude = 
 		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= Initial longitude: Decimal. Sets the initial longitude (e.g. 8.175880).
