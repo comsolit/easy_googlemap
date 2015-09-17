@@ -5,14 +5,16 @@
 .infoBox {
 	overflow: hidden;
 	margin-top: 0;
-	color: #000555;
+	color: #2a2a2a;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	padding: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	border-radius: 5px;
-	background-color: #ffffff;
+	background-color: rgb(255, 255, 255);
+	border-bottom: 2px solid rgb(192, 192, 192);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 	font-weight: bold;
-	border: 1px #000555 solid;
+	outline: 0 none;
+	transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s, background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
 }
