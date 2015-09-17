@@ -11,12 +11,7 @@ $TYPO3_CONF_VARS['SC_OPTIONS']['tce']['formevals']['tx_easygooglemap_link'] = 'E
 	'TYPO3.' . $_EXTKEY,
 	'Feeasygooglemap',
 	array(
-		'Location' => 'list, show, new, create, edit, update, delete',
-		
-	),
-	// non-cacheable actions
-	array(
-		'Location' => 'create, update, delete',
+		'Location' => 'list',
 		
 	)
 );
