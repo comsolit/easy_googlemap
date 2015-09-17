@@ -3,7 +3,6 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-
 	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>	
 
 	<map:addJsFooterInlineCode name="easy_googlemap">
@@ -27,6 +26,7 @@
 			<f:for each="{locations}" as="location">
 				var location = {
 					title: "<f:format.raw value="{location.title}" />",
+					infobox: "<f:format.raw value="{location.infobox}" />",
 					latitude: parseFloat("<f:format.raw value="{location.latitude}" />"),
 					longitude: parseFloat("<f:format.raw value="{location.longitude}" />"),
 					link: "<f:format.raw value="{location.link}" />",
@@ -111,7 +111,7 @@
 				locations.forEach(function(location) {	
 					var marker = createMarker(location);
 					markers.push(marker);
-					if(location.title) {
+					if(location.title && location.infobox === "1") {
 						infobox = new InfoBox({
 							content: location.title,
 							disableAutoPan: false,

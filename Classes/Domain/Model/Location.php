@@ -39,6 +39,13 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \string @validate NotEmpty
 	 */
 	protected $title;
+
+	/**
+	 * City
+	 *
+	 * @var \string
+	 */
+	protected $infobox;
 	
 	/**
 	 * City
@@ -113,6 +120,25 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setTitle($title) {
 		$this->title = $title;
+	}
+
+	/**
+	 * Returns the infobox
+	 *
+	 * @return \string $infobox
+	 */
+	public function getInfobox() {
+		return $this->infobox;
+	}
+
+	/**
+	 * Sets the infobox
+	 *
+	 * @param \string $infobox
+	 * @return void
+	 */
+	public function setInfobox($infobox) {
+		$this->infobox = $infobox;
 	}
 	
 	/**
