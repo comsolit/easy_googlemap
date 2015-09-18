@@ -52,6 +52,6 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
      */
     private function getPageRenderer()
     {
-        return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+        return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Core\Page\PageRenderer'); //change to \TYPO3\CMS\Core\Page\PageRenderer::class since php 5.5
     }
 }
