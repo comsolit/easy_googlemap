@@ -3,6 +3,12 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2014-06-25T12:12:37Z" product-name="easy_googlemap">
 		<header/>
 		<body>
+			<trans-unit id="anchorx.description">
+				<source>Anchor positions and coordinates of the marker</source>
+			</trans-unit>
+			<trans-unit id="anchory.description">
+				<source>Anchor positions and coordinates of the marker</source>
+			</trans-unit>
 			<trans-unit id="longitude.description">
 				<source>Longitude</source>
 			</trans-unit>

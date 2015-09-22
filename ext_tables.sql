@@ -12,6 +12,8 @@ CREATE TABLE tx_easygooglemap_domain_model_location (
 	country varchar(50) DEFAULT NULL,
 	postal_code varchar(10) DEFAULT NULL,
 	street varchar(255) DEFAULT NULL,
+	anchorx int(10) DEFAULT '0' NOT NULL,
+	anchory int(10) DEFAULT '0' NOT NULL,
 	longitude decimal(10,7) DEFAULT '0.0000000' NOT NULL,
 	latitude decimal(10,7) DEFAULT '0.0000000' NOT NULL,
 	icon text NOT NULL,

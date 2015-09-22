@@ -5,11 +5,11 @@
 			var elemId = TYPO3.jQuery(this).attr('id');
 			var addressElements = settings.addressElements;
 			var coordinateElements = settings.coordinateElements;
+			var anchorElements = settings.anchorElements;
 			var COORDS_SWITZERLAND = {
 				latitude: 46.818188,
 				longitude: 8.227512
 			};
-
 			var markerDraggable = settings.markerDraggable || false;
 			var scrollwheel = (settings.scrollwheel === undefined || settings.scrollwheel === true) ? true : false;
 
@@ -23,6 +23,10 @@
 				coordinates: {
 					latitude: TYPO3.jQuery(settings.coordinateElements.latitude),
 					longitude: TYPO3.jQuery(settings.coordinateElements.longitude)
+				},
+				anchors: {
+					anchorx: TYPO3.jQuery(settings.anchorElements.anchorx),
+					anchory: TYPO3.jQuery(settings.anchorElements.anchory)
 				}
 			};
 
@@ -243,7 +247,15 @@
 			function setMarker(coordinates) {
 				if(marker) marker.setMap(null);
 				var imageName = TYPO3.jQuery(".tceforms-multiselect > option").attr("title");
-				var image = "/uploads/tx_easygooglemap/" + imageName;
+				if(imageName !== undefined){
+					console.log(imageName);
+					var image = {
+						url: "/uploads/tx_easygooglemap/" + imageName,
+						anchor: new google.maps.Point(elements.anchors.anchorx.val(), elements.anchors.anchory.val())
+					}
+				} else {
+					var image = null;
+				}
 				marker = new google.maps.Marker({
 					map: map,
 					position: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),

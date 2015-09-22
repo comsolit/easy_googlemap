@@ -7,6 +7,12 @@
 			<trans-unit id="tx_easygooglemap_domain_model_location">
 				<source>Location</source>
 			</trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.anchorx">
+            	<source>Anchor X</source>
+            </trans-unit>
+			<trans-unit id="tx_easygooglemap_domain_model_location.anchory">
+				<source>Anchor Y</source>
+			</trans-unit>
 			<trans-unit id="tx_easygooglemap_domain_model_location.longitude">
 				<source>Longitude</source>
 			</trans-unit>

@@ -6,11 +6,11 @@ if (! defined('TYPO3_MODE')) {
 $TCA ['tx_easygooglemap_domain_model_location'] = array (
     'ctrl' => $TCA ['tx_easygooglemap_domain_model_location'] ['ctrl'],
     'interface' => array (
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, infobox, street, postal_code, city, country, longitude, latitude, icon, link'
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, infobox, street, postal_code, city, country, anchorx, anchory,  longitude, latitude, icon, link'
     ),
     'types' => array (
         '1' => array (
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,  title, infobox, street, postal_code, city, country, tx_coordinate_resolver, longitude, latitude, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
+            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,  title, infobox, street, postal_code, city, country, tx_coordinate_resolver, anchorx, anchory, longitude, latitude, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
         )
     ),
     'palettes' => array (
@@ -190,6 +190,24 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
                 'type' => 'input',
                 'size' => 10,
                 'eval' => 'required, tx_easygooglemap_coordinate'
+            )
+        ),
+        'anchorx' => array (
+            'exclude' => 0,
+            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.anchorx',
+            'config' => array (
+                'type' => 'input',
+                'size' => 10,
+                'eval' => ''
+            )
+        ),
+        'anchory' => array (
+            'exclude' => 0,
+            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.anchory',
+            'config' => array (
+                'type' => 'input',
+                'size' => 10,
+                'eval' => ''
             )
         ),
         'icon' => array (

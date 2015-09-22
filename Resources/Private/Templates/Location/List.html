@@ -3,22 +3,18 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>	
-
+	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>
 	<map:addJsFooterInlineCode name="easy_googlemap">
 		jQuery(document).ready(function() {
-			var map = null;			
-		
+			var map = null;
 			var settings = {
-				saturation:<f:format.raw>{settings.saturation}</f:format.raw>,
+				saturation:			<f:format.raw>{settings.saturation}</f:format.raw>,
 				gamma: 				<f:format.raw>{settings.gamma}</f:format.raw>,
 				fadeOutCats: 		"<f:format.raw>{settings.fadeoutcats}</f:format.raw>",
 				centerMapLatitude:  "<f:format.raw>{settings.centerMapLatitude}</f:format.raw>",
 				centerMapLongitude: "<f:format.raw>{settings.centerMapLongitude}</f:format.raw>",
 				zoom: 				 <f:format.raw>{settings.zoom}</f:format.raw>,
-				mapTypeId: 			 google.maps.MapTypeId.ROADMAP,
-				anchorPositionX: 	 <f:format.raw>{settings.anchorpositionx}</f:format.raw>,
-				anchorPositionY: 	 <f:format.raw>{settings.anchorpositiony}</f:format.raw>
+				mapTypeId: 			 google.maps.MapTypeId.ROADMAP
 			};
 
 			var locations = [];
@@ -31,6 +27,8 @@
 					longitude: parseFloat("<f:format.raw value="{location.longitude}" />"),
 					link: "<f:format.raw value="{location.link}" />",
 					icon: "<f:format.raw value="{location.icon}" />",
+					anchorx: parseFloat("<f:format.raw value="{location.anchorx}" />"),
+					anchory: parseFloat("<f:format.raw value="{location.anchory}" />"),
 					clickable: true
 				};
 				location.position = new google.maps.LatLng(location.latitude, location.longitude);
@@ -131,17 +129,18 @@
 				if(markers.length > 1) {
 					map.fitBounds(bounds);
 				}
-				
+
+
 				function createMarker(loc) {	
 					var icon = null;
 					
 					if(loc.icon && loc.icon != '') {
 						icon = {
 							url: "uploads/tx_easygooglemap/" + loc.icon,
-							anchor: new google.maps.Point(settings.anchorPositionX, settings.anchorPositionY)
+							anchor: new google.maps.Point(location.anchorx, location.anchory)
 						}
 					}
-							
+
 					var newMarker = new google.maps.Marker({
 						map: map,
 						position: loc.position,

@@ -39,10 +39,6 @@ plugin.tx_easygooglemap {
 		#cat=plugin.tx_easygooglemap/mapStyle/a; type=string; label= Gamma: Decimal. Modifies the gamma by raising the lightness to the given power. Valid values: [0.01, 10], with 1.0 representing no change. Default: 0.79.
 		gamma = 0.79
 		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= Hidden categories: String. A comma-separated list of categories to fade out (e.g. poi.business, road.highway, ...).
-		fadeoutcats = 
-		#cat=plugin.tx_easygooglemap/dims/a; type=int; label= Anchor position X: Integer. The horizontal position at which to anchor an image in correspondance to the location of the marker on the map. Default: 0.
-		anchorpositionx = 0
-		#cat=plugin.tx_easygooglemap/dims/a; type=int; label= Anchor position Y: Integer. The vertical position at which to anchor an image in correspondance to the location of the marker on the map. Default: 0.
-		anchorpositiony = 0
+		fadeoutcats =
 	}
 }

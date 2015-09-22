@@ -74,6 +74,20 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \string
 	 */
 	protected $street;
+
+	/**
+	 * AnchorX
+	 *
+	 * @var \integer
+	 */
+	protected $anchorx;
+
+	/**
+	 * AnchorY
+	 *
+	 * @var \integer
+	 */
+	protected $anchory;
 	
 	/**
 	 * Longitude
@@ -255,6 +269,44 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setLatitude($latitude) {
 		$this->latitude = $latitude;
+	}
+
+	/**
+	 * Returns the latitude
+	 *
+	 * @return \integer $anchorx
+	 */
+	public function getAnchorx() {
+		return $this->anchorx;
+	}
+
+	/**
+	 * Sets the anchorx
+	 *
+	 * @param \integer $anchorx
+	 * @return void
+	 */
+	public function setAnchorx($anchorx) {
+		$this->anchorx = $anchorx;
+	}
+
+	/**
+	 * Returns the latitude
+	 *
+	 * @return \integer $anchory
+	 */
+	public function getAnchory() {
+		return $this->anchory;
+	}
+
+	/**
+	 * Sets the anchory
+	 *
+	 * @param \integer $anchory
+	 * @return void
+	 */
+	public function setAnchory($anchory) {
+		$this->anchory = $anchory;
 	}
 	
 	/**

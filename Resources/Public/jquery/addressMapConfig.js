@@ -10,6 +10,10 @@ window.onload = function(){
       latitude: 'input[name*="latitude"]',
       longitude: 'input[name*="longitude"]'
     },
+    anchorElements: {
+      anchorx: 'input[name*="anchorx"]',
+      anchory: 'input[name*="anchory"]'
+    },
     markerDraggable: true,
     scrollwheel: false
   });

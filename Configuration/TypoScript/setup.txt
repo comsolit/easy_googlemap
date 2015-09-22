@@ -21,8 +21,6 @@ plugin.tx_easygooglemap {
 		saturation = {$plugin.tx_easygooglemap.configuration.saturation}
 		gamma = {$plugin.tx_easygooglemap.configuration.gamma}
 		fadeoutcats = {$plugin.tx_easygooglemap.configuration.fadeoutcats}
-		anchorpositionx = {$plugin.tx_easygooglemap.configuration.anchorpositionx}
-		anchorpositiony = {$plugin.tx_easygooglemap.configuration.anchorpositiony}
 		cssfile = {$plugin.tx_easygooglemap.configuration.cssfile}
 	}
 }
