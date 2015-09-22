@@ -242,10 +242,13 @@
 
 			function setMarker(coordinates) {
 				if(marker) marker.setMap(null);
+				var imageName = TYPO3.jQuery(".tceforms-multiselect > option").attr("title");
+				var image = "/uploads/tx_easygooglemap/" + imageName;
 				marker = new google.maps.Marker({
 					map: map,
 					position: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
-					draggable: markerDraggable
+					draggable: markerDraggable,
+					icon: image
 				});
 
 				google.maps.event.addListener(marker, 'dragend', function(event) {
