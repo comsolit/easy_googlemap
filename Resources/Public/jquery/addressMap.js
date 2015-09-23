@@ -29,7 +29,6 @@
 					anchory: TYPO3.jQuery(settings.anchorElements.anchory)
 				}
 			};
-
 			var map = null;
 			var geocoder = new google.maps.Geocoder();
 			var marker = null;
@@ -56,11 +55,35 @@
 			}
 
 			function initializeMap(coordinates) {
-				var mapOptions = {
+				mapOptions = {
 					zoom: 7,
-					center: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
-					scrollwheel: scrollwheel
+					scrollwheel: scrollwheel,
+					mapTypeId:  google.maps.MapTypeId.ROADMAP,
+					styles: [
+						{
+							stylers: [
+								{gamma: parseFloat(mapConfig.gamma)},
+								{saturation: parseFloat(mapConfig.saturation)},
+							]
+						}
+					]
 				};
+
+				if(mapConfig.fadeoutcats || mapConfig.fadeoutcats != '') {
+					var featureTypesString = mapConfig.fadeoutcats.replace(/\s/g, '');
+					var featureTypes = featureTypesString.split(',');
+					featureTypes.forEach(function(featureType) {
+							mapOptions.styles.push({
+								featureType: featureType,
+								stylers: [
+									{ "visibility": "off" }
+								]
+							});
+						}
+					);
+				}
+
+				mapOptions.center = new google.maps.LatLng(coordinates.latitude, coordinates.longitude);
 
 				map = new google.maps.Map(document.getElementById(elemId), mapOptions);
 
@@ -248,7 +271,6 @@
 				if(marker) marker.setMap(null);
 				var imageName = TYPO3.jQuery(".tceforms-multiselect > option").attr("title");
 				if(imageName !== undefined){
-					console.log(imageName);
 					var image = {
 						url: "/uploads/tx_easygooglemap/" + imageName,
 						anchor: new google.maps.Point(elements.anchors.anchorx.val(), elements.anchors.anchory.val())
