@@ -64,6 +64,7 @@ function updateConfig(){
 			var map = null;
 			var geocoder = new google.maps.Geocoder();
 			var marker = null;
+			var offsetMarker = null;
 			initializePlugin();
 			function initializePlugin() {
 				initializeMap(COORDS_SWITZERLAND);
@@ -300,6 +301,7 @@ function updateConfig(){
 			}
 
 			function setMarker(coordinates) {
+				if(offsetMarker) offsetMarker.setMap(null);
 				if(marker) marker.setMap(null);
 				var imageName = TYPO3.jQuery(".tceforms-multiselect > option").attr("title");
 				if(imageName !== undefined){
@@ -316,12 +318,25 @@ function updateConfig(){
 					draggable: markerDraggable,
 					icon: image
 				});
+				var offsetImage = {
+					url: "/typo3conf/ext/easy_googlemap/Resources/Public/Icons/cross.png",
+					anchor: new google.maps.Point(8, 8)
+				}
+				offsetMarker = new google.maps.Marker({
+					map: map,
+					position: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
+					icon: offsetImage
+				});
 
 				google.maps.event.addListener(marker, 'dragend', function(event) {
 					var dragEndCoordinates = {
 						latitude: event.latLng.lat(),
 						longitude: event.latLng.lng()
 					};
+					offsetMarker.setPosition({
+						lat: event.latLng.lat(),
+						lng: event.latLng.lng()
+					});
 					getAddressFromCoordinates(dragEndCoordinates, function (address){
 						setElementValues(address, dragEndCoordinates);
 					});
