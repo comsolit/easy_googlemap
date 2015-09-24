@@ -1,4 +1,36 @@
+function updateConfig(){
+	TYPO3.jQuery('#map').addressMap({
+		addressElements: {
+			street: 'input[name*="street"]',
+			city: 'input[name*="city"]',
+			zip: 'input[name*="postal_code"]',
+			country: 'input[name*="country"]'
+		},
+		coordinateElements: {
+			latitude: 'input[name*="latitude"]',
+			longitude: 'input[name*="longitude"]'
+		},
+		anchorElements: {
+			anchorx: 'input[name*="anchorx"]',
+			anchory: 'input[name*="anchory"]'
+		},
+		markerDraggable: true,
+		scrollwheel: false
+	});
+}
 (function($){
+	if(mapConfig.zoom === undefined){
+		mapConfig.zoom = "8";
+	}
+	if(mapConfig.saturation === undefined) {
+		mapConfig.saturation = "-98";
+	}
+	if(mapConfig.gamma === undefined){
+		mapConfig.gamma = "0.79";
+	}
+	if(mapConfig.fadeoutcats === undefined){
+		mapConfig.fadeoutcats = "";
+	}
 
 	TYPO3.jQuery.fn.addressMap = function(settings){
 		return this.each(function() {
@@ -56,7 +88,7 @@
 
 			function initializeMap(coordinates) {
 				mapOptions = {
-					zoom: 7,
+					zoom: parseFloat(mapConfig.zoom),
 					scrollwheel: scrollwheel,
 					mapTypeId:  google.maps.MapTypeId.ROADMAP,
 					styles: [
@@ -295,6 +327,12 @@
 					});
 				});
 			}
+			function updateAnchors(){
+				var anchorx = TYPO3.jQuery('input[name*="anchorx"]').attr('onkeyup', 'updateConfig()');
+				var anchory = TYPO3.jQuery('input[name*="anchory"]').attr('onkeyup', 'updateConfig()');
+			}
+			updateAnchors();
 		});
 	};
+
 }(jQuery));

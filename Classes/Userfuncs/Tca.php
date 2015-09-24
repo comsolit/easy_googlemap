@@ -14,7 +14,7 @@ class Tca
             " sys_template "
         );
         $query = str_replace('\n', '', $query['0']['constants']);
-        $availableConfigs = ['height', 'width', 'cssfile', 'centerMapLatitude', 'centerMapLongitude', 'zoom', 'saturation', 'gamma', 'fadeoutcats'];
+        $availableConfigs = ['zoom', 'saturation', 'gamma', 'fadeoutcats'];
         $tsConfigs = explode("plugin.tx_easygooglemap.configuration.", $query);
         foreach($tsConfigs as $tsConfig){
             foreach($availableConfigs as $availableConfig){
