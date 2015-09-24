@@ -67,10 +67,10 @@
 					
 				if(settings.centerMapLatitude != "" && settings.centerMapLongitude != "") {
 					mapOptions.center = {
-						lat: settings.centerMapLatitude,
-						lng: settings.centerMapLongitude
+						lat: parseFloat(settings.centerMapLatitude),
+						lng: parseFloat(settings.centerMapLongitude)
 					};
-					initMap(mapOptions);
+					initMap();
 				} else {
 					mapOptions.center = {
 						lat: locations[0].latitude,
@@ -83,7 +83,6 @@
 						});
 					}
 				}
-				
 				initMap(bounds);
 				setMarkers();				
 			} else {
