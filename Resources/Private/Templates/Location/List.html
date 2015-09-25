@@ -34,7 +34,8 @@
 				location.position = new google.maps.LatLng(location.latitude, location.longitude);
 				locations.push(location);
 			</f:for>
-								
+
+
 			mapOptions = {
 				zoom: settings.zoom,
 				mapTypeId: settings.mapTypeId,
@@ -70,7 +71,6 @@
 						lat: parseFloat(settings.centerMapLatitude),
 						lng: parseFloat(settings.centerMapLongitude)
 					};
-					initMap();
 				} else {
 					mapOptions.center = {
 						lat: locations[0].latitude,
@@ -125,18 +125,13 @@
 					bounds.extend(location.position);
 				});
 
-				if(markers.length > 1) {
-					map.fitBounds(bounds);
-				}
-
-
 				function createMarker(loc) {	
 					var icon = null;
 					
 					if(loc.icon && loc.icon != '') {
 						icon = {
 							url: "uploads/tx_easygooglemap/" + loc.icon,
-							anchor: new google.maps.Point(location.anchorx, location.anchory)
+							anchor: new google.maps.Point(loc.anchorx, loc.anchory)
 						}
 					}
 
