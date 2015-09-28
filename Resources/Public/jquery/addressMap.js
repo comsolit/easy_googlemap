@@ -19,18 +19,6 @@ function updateConfig(){
 	});
 }
 (function($){
-	if(mapConfig.zoom === undefined){
-		mapConfig.zoom = "8";
-	}
-	if(mapConfig.saturation === undefined) {
-		mapConfig.saturation = "-98";
-	}
-	if(mapConfig.gamma === undefined){
-		mapConfig.gamma = "0.79";
-	}
-	if(mapConfig.fadeoutcats === undefined){
-		mapConfig.fadeoutcats = "";
-	}
 
 	TYPO3.jQuery.fn.addressMap = function(settings){
 		return this.each(function() {
@@ -89,32 +77,18 @@ function updateConfig(){
 
 			function initializeMap(coordinates) {
 				mapOptions = {
-					zoom: parseFloat(mapConfig.zoom),
+					zoom: 16,
 					scrollwheel: scrollwheel,
 					mapTypeId:  google.maps.MapTypeId.ROADMAP,
 					styles: [
 						{
 							stylers: [
-								{gamma: parseFloat(mapConfig.gamma)},
-								{saturation: parseFloat(mapConfig.saturation)},
+								{gamma: 1},
+								{saturation: 1},
 							]
 						}
 					]
 				};
-
-				if(mapConfig.fadeoutcats || mapConfig.fadeoutcats != '') {
-					var featureTypesString = mapConfig.fadeoutcats.replace(/\s/g, '');
-					var featureTypes = featureTypesString.split(',');
-					featureTypes.forEach(function(featureType) {
-							mapOptions.styles.push({
-								featureType: featureType,
-								stylers: [
-									{ "visibility": "off" }
-								]
-							});
-						}
-					);
-				}
 
 				mapOptions.center = new google.maps.LatLng(coordinates.latitude, coordinates.longitude);
 
