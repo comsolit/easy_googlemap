@@ -21,15 +21,19 @@ Screenshots
 Frontend
 --------
 
-.. image:: ../../Images/screenshot_frontend.png
+.. image:: ../../Images/frontend-single.png
+
+.. image:: ../../Images/frontend-multiple.png
 
 
 
 Backend
 --------
 
-.. image:: ../../Images/screenshot_backend1.png
+.. image:: ../../Images/backend02.png
 
-.. image:: ../../Images/screenshot_backend2.png
+.. image:: ../../Images/custom-pin.png
 
-.. image:: ../../Images/screenshot_backend3.png
+.. image:: ../../Images/plugin-constants.png
+
+.. image:: ../../Images/set-anchor.png
