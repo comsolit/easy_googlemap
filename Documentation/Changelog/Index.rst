@@ -38,7 +38,7 @@ ChangeLog
 |                | Added additional fields to location.                                            | 
 +----------------+---------------------------------------------------------------------------------+	
 | 1.2.1          | Javascript files have been excluded from concatenation.                         |
-|                |   Fix for SSL-secured TYPO3 backend.                                            |
+|                | Fix for SSL-secured TYPO3 backend.                                              |
 +----------------+---------------------------------------------------------------------------------+	
 | 1.2.2          | Added option for hiding infobox on the frontend map.                            |
 |                | Custom marker is shown on backend map and the position can be                   |

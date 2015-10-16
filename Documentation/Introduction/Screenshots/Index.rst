@@ -1,4 +1,3 @@
-﻿.. include:: Images.txt
 
 .. ==================================================
 .. FOR YOUR INFORMATION

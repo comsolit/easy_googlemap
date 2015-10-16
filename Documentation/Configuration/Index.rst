@@ -335,3 +335,4 @@ width
 		 :code:`plugin.tx_easygooglemap.configuration {
               width = 900px
             }`	
+            

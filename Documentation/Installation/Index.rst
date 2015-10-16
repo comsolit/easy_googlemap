@@ -7,7 +7,8 @@
 
 Installation
 ============
-This walkthrough will help you to implement the extension owl_slider at your TYPO3 site.
+
+This walkthrough will help you to implement the extension easy_googlemap at your TYPO3 site.
 
 
 #. Download the extension
@@ -18,7 +19,7 @@ This walkthrough will help you to implement the extension owl_slider at your TYP
 
 #. Include the Static TypoScript
 
-	.. image:: ../../Images/include-typoscript.png
+	.. image:: ../Images/include-typoscript.png
 	
 #. Create a **system folder**
 	Go to Page > Create new pages > Folder. Drag “Folder” to your
@@ -27,7 +28,7 @@ This walkthrough will help you to implement the extension owl_slider at your TYP
 #. **Set storagePID**
 	In that backend view scroll down to the “Default storage PID” and change it to the ID of your Folder you created in the Step 5:
 	
-	.. image:: ../../Images/PID.png
+	.. image:: ../Images/PID.png
 
 
 #. Add **one or more** locations
@@ -36,13 +37,13 @@ This walkthrough will help you to implement the extension owl_slider at your TYP
 #. **Place the map** extension in your content   
 	Switch to Page > “Page you want to put the map on” insert the Plugin by clicking on “Add a new record at this place”
 	
-	.. image:: ../../Images/backend.png
+	.. image:: ../Images/backend.png
 	
 
 	After that switch to the “Plugins” tab, click on “General Plugins” and then switch to the “Plugin” tab. 
 	In the dropdown-menu choose “EasyGoogleMap” and save the record.
 	
-	.. image:: ../../Images/backend02.png	
+	.. image:: ../Images/backend02.png	
 	
 
 #. **Displaying only certain locations** on different pages   
@@ -55,4 +56,3 @@ This walkthrough will help you to implement the extension owl_slider at your TYP
 	You can do it by changing to “Template” and clicking on “Click here to create an extension template”
 	
 	Then change the value of the Default storage PID to the ID of the current page.
-
