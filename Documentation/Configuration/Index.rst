@@ -1,4 +1,3 @@
-﻿
 
 .. ==================================================
 .. FOR YOUR INFORMATION
@@ -17,6 +16,7 @@
 
 Configuration
 =============
+
 This chapter gives you a basic configuration about the TYPO3 CMS extension **easy_googlemap**.
 
 .. only:: html
@@ -28,6 +28,7 @@ This chapter gives you a basic configuration about the TYPO3 CMS extension **eas
 
 Plugin settings
 ---------------
+
 This section covers all settings, which can be defined in the plugin itself. 
 
 

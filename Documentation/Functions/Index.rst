@@ -15,7 +15,8 @@
 
 
 Functions
--------------
+=============
+
 This chapter gives you information about the basic functions of the extension **easy_googlemap**.
 
 .. toctree::
@@ -24,3 +25,4 @@ This chapter gives you information about the basic functions of the extension **
    :glob:
 
    Customization/Index
+   

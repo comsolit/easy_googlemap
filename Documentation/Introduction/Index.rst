@@ -1,4 +1,3 @@
-﻿
 
 .. ==================================================
 .. FOR YOUR INFORMATION
@@ -16,7 +15,7 @@
 
 
 Introduction
-------------
+=============
 
 This chapter gives you a basic introduction about the TYPO3 CMS extension **easy_googlemap**.
 

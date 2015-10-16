@@ -1,4 +1,3 @@
-﻿
 
 .. ==================================================
 .. FOR YOUR INFORMATION
@@ -16,7 +15,8 @@
 
 
 What does it do?
-^^^^^^^^^^^^^^^^
+================
 
 - A simple customizable Google Maps extension that displays 1 or more
   locations on your website.
+  
