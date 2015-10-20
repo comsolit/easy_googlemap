@@ -2,7 +2,7 @@ easy_googlemap
 =================
 
 Easy and simple Googlemap Extension for the TYPO3 CMS
-Good use for company roadmap on websites also for responsive pages
+Good use for company roadmap on websites also for responsive pages, based on the google maps API
 
 Features
 ---------

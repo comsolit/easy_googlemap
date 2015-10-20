@@ -1,4 +1,4 @@
-﻿
+
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
@@ -17,6 +17,14 @@
 Customization
 =============
 
+Set a adress
+-------------  
+
+Drag and move the icon to choose your location or just enter your address into the address fields. 
+Your marker will move automatically and update the longitude and latitude values.
+
+  .. image:: ../../Images/set-adress.png
+
 
 Custom pin
 ------------
@@ -32,6 +40,7 @@ Set the anchor
 -----------------
 
 You can set two anchor values for your custom marker. 
+**This if very helpfull if the custom Marker ist not a centered image**
 Negative values on X-anchor moves the marker to the right and positive values moves 
 him to the left. On Y-anchor positive values moves the marker up and negative moves him down. 
 The preview of the custom marker will be shown after refreshing the page. Your chosen marker point should be
@@ -50,11 +59,5 @@ When infobox is checked, title will appear in a small box on the frontend map.
   .. image:: ../../Images/frontend-infobox.png
   
   
-Set a adress
--------------  
 
-Drag and move the icon to choose your location or just enter your address into the address fields. 
-Your marker will move automatically and update the longitude and latitude values.
-
-  .. image:: ../../Images/set-adress.png
   

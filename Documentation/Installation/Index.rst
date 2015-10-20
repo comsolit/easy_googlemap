@@ -21,38 +21,21 @@ This walkthrough will help you to implement the extension easy_googlemap at your
 
 	.. image:: ../Images/include-typoscript.png
 	
-#. Create a **system folder**
-	Go to Page > Create new pages > Folder. Drag “Folder” to your
-	Pagetree. Rename that folder to “Locations” or any other name of your choice.
-
-#. **Set storagePID**
-	In that backend view scroll down to the “Default storage PID” and change it to the ID of your Folder you created in the Step 5:
-	
-	.. image:: ../Images/PID.png
-
-
 #. Add **one or more** locations
-	Go to List > “Your storage folder” > Create new record. Click on “EasyGoogleMap Location” to create an object.
-   
-#. **Place the map** extension in your content   
-	Switch to Page > “Page you want to put the map on” insert the Plugin by clicking on “Add a new record at this place”
+	Go to List > Create new record where you want to store the locations. Click on “EasyGoogleMap > Location” to create a new record. 
+
+	.. image:: ../Images/Standort-Backend.png		
 	
-	.. image:: ../Images/backend.png
-	
+#. **Place the map** extension at your page   
+	Switch to Page > “Page you want to put the map on” insert the Plugin by clicking on “Create a new content element”
 
 	After that switch to the “Plugins” tab, click on “General Plugins” and then switch to the “Plugin” tab. 
 	In the dropdown-menu choose “EasyGoogleMap” and save the record.
 	
-	.. image:: ../Images/backend02.png	
+	.. image:: ../Images/backend.png	
 	
-
-#. **Displaying only certain locations** on different pages   
-	If you don't want EasyGoogleMap to display all of your saved Locations on the same page, 
-	you can do it by creating a “location”-record on the page you want it to be shown on by going 
-	to List > “Page of your choice” and doing the same thing as you would have done in Step 7.
+#. **Set record storage page**
+	In that Plugin view choose the Page where you have the Locations you will show in at the Page.
 	
-	Once you created all the locations you want for that particular page, 
-	you need to set the storagePID for this page only. 
-	You can do it by changing to “Template” and clicking on “Click here to create an extension template”
+	.. image:: ../Images/backend02.png
 	
-	Then change the value of the Default storage PID to the ID of the current page.

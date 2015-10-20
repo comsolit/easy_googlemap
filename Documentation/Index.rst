@@ -1,8 +1,8 @@
-﻿.. ==================================================
+
+.. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
-
 
 EXT: EasyGoogleMap
 ==================
@@ -14,10 +14,10 @@ EXT: EasyGoogleMap
 	en
 
 :Keywords:
-	google, map, googlemap, typo3, extension, extbase, stable, 6.2, cms
+	google, map, googlemap, roadmap, maps, responsive, rwd
 
 :Copyright:
-	2000-2010, Andres Lobacovs, info@comsolit.com
+	comsolit AG, info@comsolit.com
 
 :Author:
 	Andres Lobacovs, info@comsolit.ch

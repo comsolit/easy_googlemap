@@ -17,6 +17,5 @@
 What does it do?
 ================
 
-- A simple customizable Google Maps extension that displays 1 or more
-  locations on your website.
+- Easy and simple Map Extension for the TYPO3 CMS Good use for company roadmap on websites also for responsive pages, based on the google maps API
   

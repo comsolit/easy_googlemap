@@ -1,7 +1,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) Andres Lobacovs <info@comsolit.com>, comsolit AG
+ *  (c) comsolit AG <info@comsolit.com>
  *  
  *  All rights reserved
  *
