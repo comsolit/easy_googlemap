@@ -1,4 +1,7 @@
 <?php
+
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
+
 if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
@@ -36,7 +39,9 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 		),
 		'searchFields' => 'title, infobox, city, country, postal_code, street, anchorx, anchory, longitude, latitude, icon, link',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Location.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_easygooglemap_domain_model_location.png'
+		'iconfile' => strpos(VersionNumberUtility::getCurrentTypo3Version(), '7') === 0
+			? 'EXT:easy_googlemap/Resources/Public/Icons/tx_easygooglemap_domain_model_location.png'
+			: \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_easygooglemap_domain_model_location.png'
 	),
 );
 
