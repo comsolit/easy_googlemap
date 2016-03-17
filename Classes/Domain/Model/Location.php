@@ -66,7 +66,7 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 * @var \string
 	 */
-	protected $postal_code;
+	protected $postalCode;
 	
 	/**
 	 * Street and Number
@@ -195,21 +195,21 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 	
 	/**
-	 * Returns the postal_code
+	 * Returns the postalCode
 	 *
 	 * @return \string $postal_code
 	 */
 	public function getPostalCode() {
-		return $this->postal_code;
+		return $this->postalCode;
 	}
 	/**
-	 * Sets the postal_code
+	 * Sets the postalCode
 	 *
-	 * @param \string $postal_code        	
+	 * @param \string $postalCode
 	 * @return void
 	 */
-	public function setPostalCode($postal_code) {
-		$this->postal_code = $postal_code;
+	public function setPostalCode($postalCode) {
+		$this->postalCode = $postalCode;
 		return $this;
 	}
 	
