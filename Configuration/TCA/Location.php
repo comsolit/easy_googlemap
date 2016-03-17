@@ -165,7 +165,7 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
             'config' => array (
                 'type' => 'user',
                 'size' => '30',
-                'userFunc' => 'TYPO3\\EasyGooglemap\\Userfuncs\\Tca->coordinateResolver',
+                'userFunc' => 'Comsolit\\EasyGooglemap\\Userfuncs\\Tca->coordinateResolver',
                 'parameters' => array(
                     'city' => 'city',
                     'country' => 'country',
@@ -229,7 +229,7 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
             'config' => array (
                 'type' => 'user',
                 'size' => '255',
-                'userFunc' => 'TYPO3\\EasyGooglemap\\Userfuncs\\Tca->urlInput',
+                'userFunc' => 'Comsolit\\EasyGooglemap\\Userfuncs\\Tca->urlInput',
                 'parameters' => array(
                 )
             )
