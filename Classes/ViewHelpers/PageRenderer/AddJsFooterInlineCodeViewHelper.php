@@ -19,7 +19,7 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
 
         $pageRenderer->addJsLibrary(
             'googlemap',
-            'http://maps.google.com/maps/api/js?v=3&sensor=false',
+            '//maps.google.com/maps/api/js?v=3&sensor=false',
             'text/javascript',
             false,
             false,
@@ -29,7 +29,7 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
 
         $pageRenderer->addJsLibrary(
             'infobox',
-            'http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js',
+            '//google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js',
             'text/javascript',
             false,
             false,
