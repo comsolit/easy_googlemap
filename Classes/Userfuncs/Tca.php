@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\EasyGooglemap\Userfuncs;
+namespace Comsolit\EasyGooglemap\Userfuncs;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

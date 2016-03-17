@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\EasyGooglemap\Controller;
+namespace Comsolit\EasyGooglemap\Controller;
 
 /***************************************************************
  *  Copyright notice
@@ -37,7 +37,7 @@ class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	/**
 	 * locationRepository
 	 *
-	 * @var \TYPO3\EasyGooglemap\Domain\Repository\LocationRepository
+	 * @var \Comsolit\EasyGooglemap\Domain\Repository\LocationRepository
 	 * @inject
 	 */
 	protected $locationRepository;

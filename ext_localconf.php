@@ -8,7 +8,7 @@ $TYPO3_CONF_VARS['SC_OPTIONS']['tce']['formevals']['tx_easygooglemap_link'] = 'E
 
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'TYPO3.' . $_EXTKEY,
+	'Comsolit.' . $_EXTKEY,
 	'Feeasygooglemap',
 	array(
 		'Location' => 'list',

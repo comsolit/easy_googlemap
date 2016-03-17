@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\EasyGooglemap\ViewHelpers\PageRenderer;
+namespace Comsolit\EasyGooglemap\ViewHelpers\PageRenderer;
 
 use TYPO3\CMS\Core\Page\PageRenderer;
 

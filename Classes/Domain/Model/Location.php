@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\EasyGooglemap\Domain\Model;
+namespace Comsolit\EasyGooglemap\Domain\Model;
 
 /***************************************************************
  *  Copyright notice

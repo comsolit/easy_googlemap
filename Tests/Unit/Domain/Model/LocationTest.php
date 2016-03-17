@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\EasyGooglemap\Tests;
+namespace Comsolit\EasyGooglemap\Tests;
 /***************************************************************
  *  Copyright notice
  *
