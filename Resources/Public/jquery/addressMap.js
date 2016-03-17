@@ -171,7 +171,7 @@ function updateConfig(){
 								address.street = property['short_name'];
 								break;
 							case 'locality':
-								address.city = property['short_name'];
+								address.city = property['long_name'];
 								break;
 							case 'country':
 								address.country = property['long_name'];
