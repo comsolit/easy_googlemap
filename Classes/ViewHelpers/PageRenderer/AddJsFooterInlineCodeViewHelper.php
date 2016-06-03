@@ -27,16 +27,6 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
             true
         );
 
-        $pageRenderer->addJsLibrary(
-            'infobox',
-            '//google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js',
-            'text/javascript',
-            false,
-            false,
-            '',
-            true
-        );
-
         $pageRenderer->addCssFile(
             $this->templateVariableContainer->get('settings')['cssfile'] ?:
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath(easy_googlemap) . 'Resources/Public/css/map.css'
