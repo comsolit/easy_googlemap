@@ -55,3 +55,5 @@ ChangeLog
 | 1.2.7          | fix city names, allow browser decide to bind googlemap API via http or https,   |
 |                | change namespaces                                                               |
 +----------------+---------------------------------------------------------------------------------+
+| 1.2.8          | substitute deprecated infobox, add composer config                              |
++----------------+---------------------------------------------------------------------------------+
