@@ -20,6 +20,10 @@ This walkthrough will help you to implement the extension easy_googlemap at your
 #. Include the Static TypoScript
 
 	.. image:: ../Images/include-typoscript.png
+
+#. Add Your Google Maps API Key
+Generate your API Key for Google JavaScript MAP under (https://developers.google.com/maps/documentation/javascript/get-api-key)
+and configure this in the TypoScript "apiKey"
 	
 #. Add **one or more** locations
 	Go to List > Create new record where you want to store the locations. Click on “EasyGoogleMap > Location” to create a new record. 

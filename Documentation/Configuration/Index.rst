@@ -174,6 +174,43 @@ jquery
 Map setup
 ^^^^^^^^^^^
 
+.. _tsapiKey:
+
+apiKey
+""""""""""""""""""""
+
+.. container:: setup
+
+   Property
+         table-row
+   Data type
+         string
+   Description
+         Google Maps API Key.
+		 **Example:**
+		 :code:`plugin.tx_easygooglemap.configuration {
+                  apiKey = xxxxxxxxxxxxxxxxxxxx
+                }`
+
+.. _tsapiLanguage:
+
+apiLanguage
+""""""""""""""""""""
+
+.. container:: setup
+
+   Property
+         table-row
+   Data type
+         string
+   Description
+         Language of Google Maps.
+		 **Example:**
+		 :code:`plugin.tx_easygooglemap.configuration {
+                      apiLanguage = de-ch
+                    }`
+
+
 .. _tscenterMapLatitude:
 
 centerMapLatitude
@@ -335,5 +372,5 @@ width
          **Example:**
 		 :code:`plugin.tx_easygooglemap.configuration {
               width = 900px
-            }`	
-            
+            }`
+
