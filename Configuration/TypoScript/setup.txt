@@ -22,6 +22,7 @@ plugin.tx_easygooglemap {
 		gamma = {$plugin.tx_easygooglemap.configuration.gamma}
 		fadeoutcats = {$plugin.tx_easygooglemap.configuration.fadeoutcats}
 		cssfile = {$plugin.tx_easygooglemap.configuration.cssfile}
+		apiEndpoint = {$plugin.tx_easygooglemap.configuration.googleMapsApiEndpoint}
 		apiKey = {$plugin.tx_easygooglemap.configuration.apiKey}
 		apiLanguage = {$plugin.tx_easygooglemap.configuration.apiLanguage}
 	}

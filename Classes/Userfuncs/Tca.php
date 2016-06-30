@@ -2,24 +2,41 @@
 
 namespace Comsolit\EasyGooglemap\Userfuncs;
 
-use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 class Tca
 {
     public function coordinateResolver($PA, $fObj)
     {
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\\Extbase\Object\ObjectManager');
+        $objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
+
+        /** @var ConfigurationManager $configurationManager */
         $configurationManager = $objectManager->get('TYPO3\CMS\Extbase\Configuration\ConfigurationManager');
-        $setting = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+
+        $setting = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+        $apiEndpoint = $setting['plugin.']['tx_easygooglemap.']['settings.']['apiEndpoint'];
         $apiKey = $setting['plugin.']['tx_easygooglemap.']['settings.']['apiKey'];
         $apiLanguage = $setting['plugin.']['tx_easygooglemap.']['settings.']['apiLanguage'];
 
+        $apiKeyExists = false;
+
+        if (!empty($apiKey)) {
+            $apiKeyExists = true;
+            $apiEndpoint .= '?key=' . $setting['apiKey'];
+        }
+
+        if (!empty($apiLanguage)) {
+            $apiEndpoint .= ($apiKeyExists) ? '&language' : '?language';
+            $apiEndpoint .= $setting['apiLanguage'];
+        }
+
         $out [] = '<div id="map" style="height: 400px;"></div>';
-        $out [] = '<script src="//maps.googleapis.com/maps/api/js?key='.$apiKey.'&language='.$apiLanguage.'"></script>';
-        $out [] = '<script type="text/javascript"' . ' src="' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath(easy_googlemap) . 'Resources/Public/jquery/addressMap.js">' . '</script>';
-        $out [] = '<script type="text/javascript"' . ' src="' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath(easy_googlemap) . 'Resources/Public/jquery/addressMapConfig.js">' . '</script>';
+        $out [] = '<script src="' . $apiEndpoint . '"></script>';
+        $out [] = '<script type="text/javascript"' . ' src="' . ExtensionManagementUtility::extRelPath('easy_googlemap') . 'Resources/Public/jquery/addressMap.js">' . '</script>';
+        $out [] = '<script type="text/javascript"' . ' src="' . ExtensionManagementUtility::extRelPath('easy_googlemap') . 'Resources/Public/jquery/addressMapConfig.js">' . '</script>';
         return implode('', $out);
 
     }
@@ -32,7 +49,7 @@ class Tca
         $out [] = '<input type="hidden" class="url-input" value="' . $PA['row']['link'] . '" name="' . $PA['itemFormElName'] . '">';
         $out [] = '</div>';
         $out [] = '</div>';
-        $out [] = '<script type="text/javascript"' . ' src="' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath(easy_googlemap) . 'Resources/Public/jquery/urlInput.js">' . '</script>';
+        $out [] = '<script type="text/javascript"' . ' src="' . ExtensionManagementUtility::extRelPath('easy_googlemap') . 'Resources/Public/jquery/urlInput.js">' . '</script>';
         return implode('', $out);
     }
 }

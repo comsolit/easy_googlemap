@@ -174,6 +174,24 @@ jquery
 Map setup
 ^^^^^^^^^^^
 
+.. _tsapiEndpoint:
+
+apiEndpoint
+""""""""""""""""""""
+
+.. container:: setup
+
+   Property
+         table-row
+   Data type
+         string
+   Description
+         Google Maps API Endpoint.
+		 **Example:**
+		 :code:`plugin.tx_easygooglemap.configuration {
+                      apiEndpoint = //maps.googleapis.com/maps/api/js
+                    }`
+
 .. _tsapiKey:
 
 apiKey

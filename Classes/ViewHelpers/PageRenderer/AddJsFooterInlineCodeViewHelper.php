@@ -3,7 +3,7 @@
 namespace Comsolit\EasyGooglemap\ViewHelpers\PageRenderer;
 
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
@@ -29,9 +29,22 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
             ->configurationManager
             ->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
 
+        $googleMapApiEndpoint = $setting['apiEndpoint'];
+        $apiKeyExists = false;
+
+        if (array_key_exists('apiKey', $setting) && !empty($setting['apiKey'])) {
+            $apiKeyExists = true;
+            $googleMapApiEndpoint .= '?key=' . $setting['apiKey'];
+        }
+
+        if (array_key_exists('apiLanguage', $setting) && !empty($setting['apiLanguage'])) {
+            $googleMapApiEndpoint .= ($apiKeyExists) ? '&language' : '?language';
+            $googleMapApiEndpoint .= $setting['apiLanguage'];
+        }
+
         $pageRenderer->addJsLibrary(
             'googlemap',
-            '//maps.googleapis.com/maps/api/js?key='.$setting['apiKey'].'&language='.$setting['apiLanguage'],
+            $googleMapApiEndpoint,
             'text/javascript',
             false,
             false,
@@ -41,7 +54,7 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
 
         $pageRenderer->addCssFile(
             $this->templateVariableContainer->get('settings')['cssfile'] ?:
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('easy_googlemap') . 'Resources/Public/css/map.css'
+            ExtensionManagementUtility::siteRelPath('easy_googlemap') . 'Resources/Public/css/map.css'
         );
 
         $pageRenderer->addJsFooterInlineCode($name, $block, $compress, $forceOnTop);
