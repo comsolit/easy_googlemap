@@ -41,9 +41,11 @@ plugin.tx_easygooglemap {
 		#cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= Hidden categories: String. A comma-separated list of categories to fade out (e.g. poi.business, road.highway, ...).
 		fadeoutcats =
         #cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= API key: String. the Google Maps API Endpoint
-        apiEndpoint = //maps.googleapis.com/maps/api/js
+        apiEndpoint = https://maps.googleapis.com/maps/api/js
         #cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= API key: String. the API Key for Google JavaScript MAP API under (https://developers.google.com/maps/documentation/javascript/get-api-key)
         apiKey =
+        #cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= API key: String. the API Key for Backend
+        apiKeyBackend =
         #cat=plugin.tx_easygooglemap/mapSetup/a; type=string; label= Language: Google Maps API Language for example "de-ch"
         apiLanguage = 
     }

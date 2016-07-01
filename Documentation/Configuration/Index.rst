@@ -210,6 +210,24 @@ apiKey
                   apiKey = xxxxxxxxxxxxxxxxxxxx
                 }`
 
+.. _tsapiKeyBackend:
+
+apiKeyBackend
+""""""""""""""""""""
+
+.. container:: setup
+
+   Property
+         table-row
+   Data type
+         string
+   Description
+         Google Maps API Key for Backend.
+		 **Example:**
+		 :code:`plugin.tx_easygooglemap.configuration {
+                      apiKeyBackend = xxxxxxxxxxxxxxxxxxxx
+                    }`
+
 .. _tsapiLanguage:
 
 apiLanguage

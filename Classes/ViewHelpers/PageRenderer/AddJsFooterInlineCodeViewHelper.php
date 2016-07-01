@@ -38,7 +38,7 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
         }
 
         if (array_key_exists('apiLanguage', $setting) && !empty($setting['apiLanguage'])) {
-            $googleMapApiEndpoint .= ($apiKeyExists) ? '&language' : '?language';
+            $googleMapApiEndpoint .= ($apiKeyExists ? '&language=' : '?language=');
             $googleMapApiEndpoint .= $setting['apiLanguage'];
         }
 

@@ -18,19 +18,19 @@ class Tca
 
         $setting = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
         $apiEndpoint = $setting['plugin.']['tx_easygooglemap.']['settings.']['apiEndpoint'];
-        $apiKey = $setting['plugin.']['tx_easygooglemap.']['settings.']['apiKey'];
+        $apiKeyBackend = $setting['plugin.']['tx_easygooglemap.']['settings.']['apiKeyBackend'];
         $apiLanguage = $setting['plugin.']['tx_easygooglemap.']['settings.']['apiLanguage'];
 
         $apiKeyExists = false;
 
-        if (!empty($apiKey)) {
+        if (!empty($apiKeyBackend)) {
             $apiKeyExists = true;
-            $apiEndpoint .= '?key=' . $setting['apiKey'];
+            $apiEndpoint .= '?key=' .$apiKeyBackend;
         }
 
         if (!empty($apiLanguage)) {
-            $apiEndpoint .= ($apiKeyExists) ? '&language' : '?language';
-            $apiEndpoint .= $setting['apiLanguage'];
+            $apiEndpoint .= ($apiKeyExists ? '&language=' : '?language=');
+            $apiEndpoint .= $apiLanguage;
         }
 
         $out [] = '<div id="map" style="height: 400px;"></div>';
