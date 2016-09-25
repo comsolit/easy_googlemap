@@ -32,6 +32,11 @@
 					anchory: parseFloat("<f:format.raw value="{location.anchory}" />"),
 					clickable: true
 				};
+
+				if(!location.link && !location.infobox){
+					location.clickable = false;
+				}
+
 				location.position = new google.maps.LatLng(location.latitude, location.longitude);
 				locations.push(location);
 			</f:for>
