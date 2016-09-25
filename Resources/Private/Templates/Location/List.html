@@ -3,6 +3,8 @@
 <f:layout name="Default" />
 
 <f:section name="main">
+	<f:debug>{locations}</f:debug>
+
 	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>
 	<map:addJsFooterInlineCode name="easy_googlemap">
 		jQuery(document).ready(function() {
@@ -22,6 +24,7 @@
 			<f:for each="{locations}" as="location">
 				var location = {
 					title: "<f:format.raw value="{location.title}" />",
+					infotext: "<f:format.raw value="{location.infotext}" />",
 					infobox: "<f:format.raw value="{location.infobox}" />",
 					latitude: parseFloat("<f:format.raw value="{location.latitude}" />"),
 					longitude: parseFloat("<f:format.raw value="{location.longitude}" />"),
@@ -109,13 +112,25 @@
 					var marker = createMarker(location);
 					markers.push(marker);
 					if(location.title && location.infobox === "1") {
+						let contentString = '';
+
+						if(marker.url){
+							contentString += '<a href="' + marker.url + '" target="_blank">' + location.title + '</a>';
+						} else {
+							contentString += '<b>' + location.title + '</b>';
+						}
+
+						if(location.infotext){
+							contentString += '<br>' + location.infotext;
+						}
+
 						var infoWindow = new google.maps.InfoWindow({
-							content: '<a href="' + marker.url + '" target="_blank">' + location.title + '</a>'
+							content: contentString
 						});
 						marker.addListener('click', function() {
 							infoWindow.open(map, marker);
 						});
-					} else {
+					} else if(marker.url) {
 						new google.maps.event.addListener(marker, 'click', function() {
 						window.open(marker.url);
 						});

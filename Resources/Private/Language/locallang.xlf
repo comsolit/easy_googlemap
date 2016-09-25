@@ -22,6 +22,9 @@
 			<trans-unit id="tx_easygooglemap_domain_model_location.title">
 				<source>Title</source>
 			</trans-unit>
+					<trans-unit id="tx_easygooglemap_domain_model_location.infotext">
+				<source>Infotext</source>
+			</trans-unit>
 			<trans-unit id="tx_easygooglemap_domain_model_location.infobox">
             	<source>Infobox</source>
             </trans-unit>

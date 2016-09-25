@@ -41,33 +41,40 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $title;
 
 	/**
-	 * City
+	 * Infobox
 	 *
 	 * @var \string
 	 */
 	protected $infobox;
-	
+
+  /**
+	 * Infotext
+	 *
+	 * @var \string
+	 */
+	protected $infotext;
+
 	/**
 	 * City
 	 *
 	 * @var \string
 	 */
 	protected $city;
-	
+
 	/**
 	 * Country
 	 *
 	 * @var \string
 	 */
 	protected $country;
-	
+
 	/**
 	 * Postal Code
 	 *
 	 * @var \string
 	 */
 	protected $postalCode;
-	
+
 	/**
 	 * Street and Number
 	 *
@@ -125,15 +132,35 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function getTitle() {
 		return $this->title;
 	}
-	
+
 	/**
 	 * Sets the title
 	 *
-	 * @param \string $title        	
+	 * @param \string $title
 	 * @return void
 	 */
 	public function setTitle($title) {
 		$this->title = $title;
+	}
+
+  /**
+   * Returns the infotext
+   *
+   * @return string $infotext
+   */
+  public function getInfotext()
+  {
+    return str_replace(array("\r\n", "\n\r", "\r", "\n"), "", nl2br($this->infotext));
+  }
+
+	/**
+	 * Sets the infotext
+	 *
+	 * @param \string $infotext
+	 * @return void
+	 */
+	public function setInfotext($infotext) {
+		$this->infotext = $infotext;
 	}
 
 	/**
