@@ -18,6 +18,9 @@
 			<trans-unit id="title.description">
 				<source>Title</source>
 			</trans-unit>
+            <trans-unit id="infotext.description">
+				<source>The Infotext to display in the Infobox</source>
+			</trans-unit>
 			<trans-unit id="infobox.description">
             	<source>Enable to show infobox on map</source>
             </trans-unit>

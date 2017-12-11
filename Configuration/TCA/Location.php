@@ -10,7 +10,7 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
     ),
     'types' => array (
         '1' => array (
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,  title, infobox, street, postal_code, city, country, tx_coordinate_resolver, anchorx, anchory, longitude, latitude, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
+            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,  title, infobox, infotext, street, postal_code, city, country, tx_coordinate_resolver, anchorx, anchory, longitude, latitude, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
         )
     ),
     'palettes' => array (
@@ -123,6 +123,15 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
                 'size' => 30,
                 'eval' => 'trim, required'
             )
+        ),
+      'infotext' => array (
+            'exclude' => 0,
+            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.infotext',
+            'config' => [
+              'type' => 'text',
+              'cols' => 30,
+              'rows' => 5,
+            ]
         ),
         'postal_code' => array (
             'exclude' => 0,
