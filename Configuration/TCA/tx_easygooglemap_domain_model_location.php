@@ -10,7 +10,7 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
     ),
     'types' => array (
         '1' => array (
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,  title, infobox, infotext, street, postal_code, city, country, tx_coordinate_resolver, anchorx, anchory, longitude, latitude, icon, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'
+            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,  title, infobox, infotext, street, postal_code, city, country, tx_coordinate_resolver, anchorx, anchory, longitude, latitude, icon, link,--div--;LLL:EXT:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime, endtime'
         )
     ),
     'palettes' => array (
@@ -189,7 +189,7 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
             'config' => array (
                 'type' => 'input',
                 'size' => 10,
-                'eval' => 'required, tx_easygooglemap_coordinate'
+                'eval' => 'required,Comsolit\\EasyGooglemap\\Evaluation\\CoordinateEvaluation,trim'
             )
         ),
         'latitude' => array (
@@ -198,7 +198,7 @@ $TCA ['tx_easygooglemap_domain_model_location'] = array (
             'config' => array (
                 'type' => 'input',
                 'size' => 10,
-                'eval' => 'required, tx_easygooglemap_coordinate'
+                'eval' => 'Comsolit\\EasyGooglemap\\Evaluation\\CoordinateEvaluation,trim,required'
             )
         ),
         'anchorx' => array (

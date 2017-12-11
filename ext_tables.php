@@ -36,7 +36,7 @@ $TCA['tx_easygooglemap_domain_model_location'] = array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'title, infobox, city, country, postal_code, street, anchorx, anchory, longitude, latitude, icon, link',
-		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Location.php',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/tx_easygooglemap_domain_model_location.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\GeneralUtility::compat_version('7.5')
 			? 'EXT:easy_googlemap/Resources/Public/Icons/tx_easygooglemap_domain_model_location.png'
 			: \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_easygooglemap_domain_model_location.png'
