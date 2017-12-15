@@ -61,6 +61,6 @@ ChangeLog
 +----------------+---------------------------------------------------------------------------------+
 | 1.2.10         | Bugfix of Marker-Icon Path not working without baseURL                          |
 +----------------+---------------------------------------------------------------------------------+
-| 2.0.0          | Support compatibility with TYPO3 v8.6                                           |
-|                | Dropped compatibility with versions less than v7.6                              |
+| 2.0.0          | Support compatibility with Version 8.7                                          |
+|                | Dropped compatibility with Version 6.2                                          |
 +----------------+---------------------------------------------------------------------------------+
