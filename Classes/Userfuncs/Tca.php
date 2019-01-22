@@ -35,8 +35,8 @@ class Tca
 
         $out [] = '<div id="map" style="height: 400px;"></div>';
         $out [] = '<script src="' . $apiEndpoint . '"></script>';
-        $out [] = '<script type="text/javascript"' . ' src="' . ExtensionManagementUtility::extRelPath('easy_googlemap') . 'Resources/Public/jquery/addressMap.js">' . '</script>';
-        $out [] = '<script type="text/javascript"' . ' src="' . ExtensionManagementUtility::extRelPath('easy_googlemap') . 'Resources/Public/jquery/addressMapConfig.js">' . '</script>';
+        $out [] = '<script type="text/javascript"' . ' src="' . 'EXT:easy_googlemap/Resources/Public/jquery/addressMap.js">' . '</script>';
+        $out [] = '<script type="text/javascript"' . ' src="' . 'EXT:easy_googlemap/Resources/Public/jquery/addressMapConfig.js">' . '</script>';
         return implode('', $out);
 
     }
@@ -49,7 +49,7 @@ class Tca
         $out [] = '<input type="hidden" class="url-input" value="' . $PA['row']['link'] . '" name="' . $PA['itemFormElName'] . '">';
         $out [] = '</div>';
         $out [] = '</div>';
-        $out [] = '<script type="text/javascript"' . ' src="' . ExtensionManagementUtility::extRelPath('easy_googlemap') . 'Resources/Public/jquery/urlInput.js">' . '</script>';
+        $out [] = '<script type="text/javascript"' . ' src="' . 'EXT:easy_googlemap/Resources/Public/jquery/urlInput.js">' . '</script>';
         return implode('', $out);
     }
 }

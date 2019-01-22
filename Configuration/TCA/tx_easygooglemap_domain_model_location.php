@@ -25,9 +25,7 @@ $GLOBALS['TCA']['tx_easygooglemap_domain_model_location'] = array(
       'endtime' => 'endtime',
     ),
     'searchFields' => 'title, infobox, city, country, postal_code, street, anchorx, anchory, longitude, latitude, icon, link',
-    'iconfile' => \TYPO3\CMS\Core\Utility\GeneralUtility::compat_version('7.5')
-      ? 'EXT:easy_googlemap/Resources/Public/Icons/tx_easygooglemap_domain_model_location.png'
-      : \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_easygooglemap_domain_model_location.png'
+    'iconfile' => 'EXT:easy_googlemap/Resources/Public/Icons/tx_easygooglemap_domain_model_location.png',
   ),
   'interface' => array(
     'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, infobox, street, postal_code, city, country, anchorx, anchory,  longitude, latitude, icon, link'
