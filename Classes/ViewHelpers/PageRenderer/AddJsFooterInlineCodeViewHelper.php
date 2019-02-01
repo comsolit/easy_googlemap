@@ -73,7 +73,7 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
 
         $this->pageRenderer->addCssFile(
             $this->templateVariableContainer->get('settings')['cssfile'] ?:
-                'EXT:easy_googlmap/Resources/Public/css/map.css'
+                'EXT:easy_googlemap/Resources/Public/css/map.css'
         );
 
         $this->pageRenderer->addJsFooterInlineCode(
