@@ -18,6 +18,9 @@
 			<trans-unit id="title.description">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="coordinate.resolver">
+            	<source>Coordinate Resolver</source>
+            </trans-unit>
             <trans-unit id="infotext.description">
 				<source>The Infotext to display in the Infobox</source>
 			</trans-unit>

@@ -3,26 +3,45 @@
 namespace Comsolit\EasyGooglemap\ViewHelpers\PageRenderer;
 
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {
     /**
-    * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManager
-    * @inject
-    */
+     * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManager
+     * @inject
+     */
     protected $configurationManager;
 
     /**
-     *
-     * @param string $name
-     * @return NULL
+     * @var \TYPO3\CMS\Core\Page\PageRenderer
      */
-    public function render($name)
-    {
-        $pageRenderer = $this->getPageRenderer();
+    protected $pageRenderer;
 
+    /**
+     *
+     * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
+     */
+    public function injectPageRenderer(PageRenderer $pageRenderer)
+    {
+        $this->pageRenderer = $pageRenderer;
+    }
+
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument("name", "string", "", false);
+        $this->registerArgument("compress", "boolean", "");
+        $this->registerArgument("forceOnTop", "boolean", "");
+        $this->registerArgument("excludeFromConcatenation", "boolean", "");
+    }
+
+    /**
+     * @return null
+     * @throws \TYPO3\CMS\Extbase\Configuration\Exception\InvalidConfigurationTypeException
+     */
+    public function render()
+    {
         $block = $this->renderChildren();
 
         $setting = $this
@@ -42,7 +61,7 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
             $googleMapApiEndpoint .= $setting['apiLanguage'];
         }
 
-        $pageRenderer->addJsLibrary(
+        $this->pageRenderer->addJsLibrary(
             'googlemap',
             $googleMapApiEndpoint,
             'text/javascript',
@@ -52,21 +71,18 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
             true
         );
 
-        $pageRenderer->addCssFile(
+        $this->pageRenderer->addCssFile(
             $this->templateVariableContainer->get('settings')['cssfile'] ?:
-            ExtensionManagementUtility::siteRelPath('easy_googlemap') . 'Resources/Public/css/map.css'
+                'EXT:easy_googlmap/Resources/Public/css/map.css'
         );
 
-        $pageRenderer->addJsFooterInlineCode($name, $block, $compress, $forceOnTop);
+        $this->pageRenderer->addJsFooterInlineCode(
+            $this->arguments['name'],
+            $block,
+            $this->arguments['compress'],
+            $this->arguments['forceOnTop']
+        );
 
         return null;
-    }
-
-    /**
-     * @return PageRenderer
-     */
-    private function getPageRenderer()
-    {
-        return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Page\PageRenderer');
     }
 }
