@@ -1,11 +1,12 @@
 <?php
+
 namespace Comsolit\EasyGooglemap\Controller;
 
 /***************************************************************
  *  Copyright notice
  *
  *  (c) Andres Lobacovs <info@comsolit.com>, comsolit AG
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -32,24 +33,25 @@ namespace Comsolit\EasyGooglemap\Controller;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
 
-	/**
-	 * locationRepository
-	 *
-	 * @var \Comsolit\EasyGooglemap\Domain\Repository\LocationRepository
-	 * @inject
-	 */
-	protected $locationRepository;
+    /**
+     * locationRepository
+     *
+     * @var \Comsolit\EasyGooglemap\Domain\Repository\LocationRepository
+     * @inject
+     */
+    protected $locationRepository;
 
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$locations = $this->locationRepository->findAll();
-		$this->view->assign('locations', $locations);
-	}
+    /**
+     * action list
+     *
+     * @return void
+     */
+    public function listAction()
+    {
+        $locations = $this->locationRepository->findAll();
+        $this->view->assign('locations', $locations);
+    }
 }
-?>

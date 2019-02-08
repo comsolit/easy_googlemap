@@ -64,3 +64,10 @@ ChangeLog
 | 2.0.0          | Support compatibility with Version 8.7                                          |
 |                | Dropped compatibility with Version 6.2                                          |
 +----------------+---------------------------------------------------------------------------------+
+| 3.0.0          | Support dropped for TYPO3 7 & 8                                                 |
+|                | Replace deprecated methods                                                      |
+|                | Initialize arguments for render function                                        |
+|                | Fix TCA configuration                                                           |
+|                | Add method for relativePath                                                     |
+|                | Fix code style                                                                  |
++----------------+---------------------------------------------------------------------------------+

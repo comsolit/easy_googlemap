@@ -34,7 +34,7 @@ class Tca
 
         if (!empty($apiKeyBackend)) {
             $apiKeyExists = true;
-            $apiEndpoint .= '?key=' .$apiKeyBackend;
+            $apiEndpoint .= '?key=' . $apiKeyBackend;
         }
 
         if (!empty($apiLanguage)) {
@@ -46,8 +46,8 @@ class Tca
         $out [] = '<script src="' . $apiEndpoint . '"></script>';
         $out [] = '<script type="text/javascript"' . ' src="' . $this->getExtPath() . '/Resources/Public/jquery/addressMap.js">' . '</script>';
         $out [] = '<script type="text/javascript"' . ' src="' . $this->getExtPath() . '/Resources/Public/jquery/addressMapConfig.js">' . '</script>';
-        return implode('', $out);
 
+        return implode('', $out);
     }
 
     /**
@@ -63,10 +63,12 @@ class Tca
         $out [] = '</div>';
         $out [] = '</div>';
         $out [] = '<script type="text/javascript"' . ' src="' . $this->getExtPath() . '/Resources/Public/jquery/urlInput.js">' . '</script>';
+
         return implode('', $out);
     }
 
-    public function getExtPath() {
+    public function getExtPath()
+    {
 
         return PathUtility::getRelativePathTo(ExtensionManagementUtility::extPath('easy_googlemap'));
     }
