@@ -1,28 +1,28 @@
 function updateConfig(){
-	TYPO3.jQuery('#map').addressMap({
-	    addressElements: {
-	      street: 'input[name*="street"], input[data-formengine-input-name*="street"]',
-	      city: 'input[name*="city"], input[data-formengine-input-name*="city"]',
-	      zip: 'input[name*="postal_code"], input[data-formengine-input-name*="postal_code"]',
-	      country: 'input[name*="country"], input[data-formengine-input-name*="country"]'
-	    },
-	    coordinateElements: {
-	      latitude: 'input[name*="latitude"], input[data-formengine-input-name*="latitude"]',
-	      longitude: 'input[name*="longitude"], input[data-formengine-input-name*="longitude"]'
-	    },
-	    anchorElements: {
-	      anchorx: 'input[name*="anchorx"], input[data-formengine-input-name*="anchorx"]',
-	      anchory: 'input[name*="anchory"], input[data-formengine-input-name*="anchory"]'
-	    },
-	    markerDraggable: true,
-	    scrollwheel: false
-	  });
+	$('#map').addressMap({
+		addressElements: {
+			street: 'input[name*="street"], input[data-formengine-input-name*="street"]',
+			city: 'input[name*="city"], input[data-formengine-input-name*="city"]',
+			zip: 'input[name*="postal_code"], input[data-formengine-input-name*="postal_code"]',
+			country: 'input[name*="country"], input[data-formengine-input-name*="country"]'
+		},
+		coordinateElements: {
+			latitude: 'input[name*="latitude"], input[data-formengine-input-name*="latitude"]',
+			longitude: 'input[name*="longitude"], input[data-formengine-input-name*="longitude"]'
+		},
+		anchorElements: {
+			anchorx: 'input[name*="anchorx"], input[data-formengine-input-name*="anchorx"]',
+			anchory: 'input[name*="anchory"], input[data-formengine-input-name*="anchory"]'
+		},
+		markerDraggable: true,
+		scrollwheel: false
+	});
 }
 (function($){
 
-	TYPO3.jQuery.fn.addressMap = function(settings){
+	$.fn.addressMap = function(settings){
 		return this.each(function() {
-			var elemId = TYPO3.jQuery(this).attr('id');
+			var elemId = $(this).attr('id');
 			var addressElements = settings.addressElements;
 			var coordinateElements = settings.coordinateElements;
 			var anchorElements = settings.anchorElements;
@@ -35,18 +35,18 @@ function updateConfig(){
 
 			var elements = {
 				address: {
-					street: TYPO3.jQuery(settings.addressElements.street),
-					city: TYPO3.jQuery(settings.addressElements.city),
-					zip: TYPO3.jQuery(settings.addressElements.zip),
-					country: TYPO3.jQuery(settings.addressElements.country)
+					street: $(settings.addressElements.street),
+					city: $(settings.addressElements.city),
+					zip: $(settings.addressElements.zip),
+					country: $(settings.addressElements.country)
 				},
 				coordinates: {
-					latitude: TYPO3.jQuery(settings.coordinateElements.latitude),
-					longitude: TYPO3.jQuery(settings.coordinateElements.longitude)
+					latitude: $(settings.coordinateElements.latitude),
+					longitude: $(settings.coordinateElements.longitude)
 				},
 				anchors: {
-					anchorx: TYPO3.jQuery(settings.anchorElements.anchorx),
-					anchory: TYPO3.jQuery(settings.anchorElements.anchory)
+					anchorx: $(settings.anchorElements.anchorx),
+					anchory: $(settings.anchorElements.anchory)
 				}
 			};
 			var map = null;
@@ -64,7 +64,7 @@ function updateConfig(){
 							initializeMap(coordinates);
 						},
 						function(error) {
-						  console.warn(error.code + ": " + error.message);
+							console.warn(error.code + ": " + error.message);
 						}
 					);
 				} else {
@@ -164,23 +164,23 @@ function updateConfig(){
 								var type = property.types[0];
 							}
 							switch(type) {
-							case 'street_number':
-								address.streetNr = property['short_name'];
-								break;
-							case 'route':
-								address.street = property['short_name'];
-								break;
-							case 'locality':
-								address.city = property['long_name'];
-								break;
-							case 'country':
-								address.country = property['long_name'];
-								break;
-							case 'postal_code':
-								address.zip = property['short_name'];
-								break;
-							case '':
-								break;
+								case 'street_number':
+									address.streetNr = property['short_name'];
+									break;
+								case 'route':
+									address.street = property['short_name'];
+									break;
+								case 'locality':
+									address.city = property['long_name'];
+									break;
+								case 'country':
+									address.country = property['long_name'];
+									break;
+								case 'postal_code':
+									address.zip = property['short_name'];
+									break;
+								case '':
+									break;
 							}
 						});
 
@@ -193,7 +193,7 @@ function updateConfig(){
 
 			function setElementValues(address, coordinates) {
 				if(address != null) {
-					elements.address.street.val(TYPO3.jQuery.grep([address.street, address.streetNr], Boolean).join(' '));
+					elements.address.street.val($.grep([address.street, address.streetNr], Boolean).join(' '));
 					elements.address.city.val(address.city);
 					elements.address.zip.val(address.zip);
 					elements.address.country.val(address.country);
@@ -212,8 +212,8 @@ function updateConfig(){
 					country: (elements.address.country).find('option:selected').text()
 				};
 
-				var zipCity = TYPO3.jQuery.grep([address.zip, address.city], Boolean).join(' ');
-				var addressString = TYPO3.jQuery.grep([address.street, zipCity, address.country], Boolean).join(', ');
+				var zipCity = $.grep([address.zip, address.city], Boolean).join(' ');
+				var addressString = $.grep([address.street, zipCity, address.country], Boolean).join(', ');
 
 				return addressString;
 			}
@@ -277,7 +277,7 @@ function updateConfig(){
 			function setMarker(coordinates) {
 				if(offsetMarker) offsetMarker.setMap(null);
 				if(marker) marker.setMap(null);
-				var imageName = TYPO3.jQuery(".tceforms-multiselect > option").attr("title");
+				var imageName = $(".tceforms-multiselect > option").attr("title");
 				if(imageName !== undefined){
 					var image = {
 						url: "/uploads/tx_easygooglemap/" + imageName,

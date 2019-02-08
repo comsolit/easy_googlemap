@@ -1,5 +1,4 @@
 (function() {
-    var $ = TYPO3.jQuery;
     var hiddenField = $('.url-input');
     var inputField = $('<input type="text" class="form-control">');
     hiddenField.after(inputField);

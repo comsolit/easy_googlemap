@@ -1,5 +1,5 @@
 window.onload = function(){
-  TYPO3.jQuery('#map').addressMap({
+  $('#map').addressMap({
     addressElements: {
       street: 'input[name*="street"], input[data-formengine-input-name*="street"]',
       city: 'input[name*="city"], input[data-formengine-input-name*="city"]',
