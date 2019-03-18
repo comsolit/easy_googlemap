@@ -9,6 +9,12 @@ use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 class Tca
 {
+
+    /**
+     * @param $PA
+     * @param $fObj
+     * @return string
+     */
     public function coordinateResolver($PA, $fObj)
     {
         $objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');

@@ -64,3 +64,7 @@ ChangeLog
 | 2.0.0          | Support compatibility with Version 8.7                                          |
 |                | Dropped compatibility with Version 6.2                                          |
 +----------------+---------------------------------------------------------------------------------+
+| 2.0.1          | Fix for negative longitude                                                      |
+|                | Fix TCA configuration                                                           |
+|                | Fix code style                                                                  |
++----------------+---------------------------------------------------------------------------------+
