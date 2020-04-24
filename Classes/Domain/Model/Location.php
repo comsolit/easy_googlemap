@@ -38,7 +38,8 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Title
      *
-     * @var \string @validate NotEmpty
+     * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1})
      */
     protected $title;
 
@@ -101,28 +102,32 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Longitude
      *
-     * @var \float @validate NotEmpty
+     * @var \float
+     * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1})
      */
     protected $longitude;
 
     /**
      * latitude
      *
-     * @var \float @validate NotEmpty
+     * @var \float
+     * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1})
      */
     protected $latitude;
 
     /**
      * Icon
      *
-     * @var \string @validate NotEmpty
+     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1})
      */
     protected $icon;
 
     /**
      * Link
      *
-     * @var \string @validate NotEmpty
+     * @var \string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1})
      */
     protected $link;
 
@@ -359,13 +364,12 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->anchory = $anchory;
     }
-
+    
     /**
      * Returns the icon
-     *
-     * @return \string $icon
+     * 
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $icon
      */
-    /* */
     public function getIcon()
     {
         return $this->icon;
@@ -373,11 +377,11 @@ class Location extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Sets the icon
-     *
-     * @param \string $icon
+     * 
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $icon
      * @return void
      */
-    public function setIcon($icon)
+    public function setIcon(\TYPO3\CMS\Extbase\Domain\Model\FileReference $icon)
     {
         $this->icon = $icon;
     }
