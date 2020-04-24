@@ -2,7 +2,7 @@
   "name": "comsolit/easy_googlemap",
   "type": "typo3-cms-extension",
   "description": "Google Map Extension",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "keywords": [
     "TYPO3",
     "CMS",
@@ -14,7 +14,7 @@
     "comsolit/easy_googlemap": "self.version"
   },
   "require": {
-    "typo3/cms-core": ">=9.0.0,<9.5.99",
+    "typo3/cms-core": ">=9.0.0,<10.4.99",
     "php": ">=7.2.0"
   },
   "autoload": {
