@@ -26,6 +26,8 @@ namespace Comsolit\EasyGooglemap\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use \Comsolit\EasyGooglemap\Domain\Repository\LocationRepository;
+
 /**
  *
  *
@@ -35,15 +37,22 @@ namespace Comsolit\EasyGooglemap\Controller;
  */
 class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-
+    
     /**
-     * locationRepository
-     *
-     * @var \Comsolit\EasyGooglemap\Domain\Repository\LocationRepository
-     * @inject
+     * @var LocationRepository
      */
     protected $locationRepository;
-
+    
+    /**
+      * Inject the location repository
+      *
+      * @param \Comsolit\EasyGooglemap\Domain\Repository\LocationRepository $locationRepository
+      */
+     public function injectLocationRepository(LocationRepository $locationRepository)
+     {
+         $this->locationRepository = $locationRepository;
+     }
+    
     /**
      * action list
      *
