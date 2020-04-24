@@ -97,9 +97,10 @@ $GLOBALS['TCA']['tx_easygooglemap_domain_model_location'] = [
         ],
         'hidden' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.disable',
             'config' => [
-                'type' => 'check'
+                'type' => 'check',
+                'renderType' => 'checkboxToggle'
             ]
         ],
         'starttime' => [
@@ -147,7 +148,8 @@ $GLOBALS['TCA']['tx_easygooglemap_domain_model_location'] = [
             'exclude' => 1,
             'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.infobox',
             'config' => [
-                'type' => 'check'
+                'type' => 'check',
+                'renderType' => 'checkboxToggle'
             ]
         ],
 
@@ -207,11 +209,11 @@ $GLOBALS['TCA']['tx_easygooglemap_domain_model_location'] = [
         ],
         'tx_coordinate_resolver' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.coordinate.resolver',
+            'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_csh_tx_easygooglemap_domain_model_location.xlf:coordinate.resolver',
             'config' => [
                 'type' => 'user',
                 'size' => '30',
-                'userFunc' => 'Comsolit\\EasyGooglemap\\Userfuncs\\Tca->coordinateResolver',
+                'renderType' => 'coordinateResolver',
                 'parameters' => [
                     'city' => 'city',
                     'country' => 'country',
@@ -261,14 +263,15 @@ $GLOBALS['TCA']['tx_easygooglemap_domain_model_location'] = [
         'icon' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:easy_googlemap/Resources/Private/Language/locallang_db.xlf:tx_easygooglemap_domain_model_location.icon',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'file',
-                'uploadfolder' => 'uploads/tx_easygooglemap',
-                'size' => 5,
-                'allowed' => $GLOBALS ['TYPO3_CONF_VARS'] ['GFX'] ['imagefile_ext'],
-                'disallowed' => ''
-            ]
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'image',
+                [
+                    'appearance' => [
+                       'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+                    ],
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
         ],
         'link' => [
             'exclude' => 0,
@@ -276,7 +279,7 @@ $GLOBALS['TCA']['tx_easygooglemap_domain_model_location'] = [
             'config' => [
                 'type' => 'user',
                 'size' => '255',
-                'userFunc' => 'Comsolit\\EasyGooglemap\\Userfuncs\\Tca->urlInput',
+                'renderType' => 'urlInput',
                 'parameters' => []
             ]
         ]
