@@ -2,16 +2,25 @@
 
 namespace Comsolit\EasyGooglemap\ViewHelpers\PageRenderer;
 
-use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use \TYPO3\CMS\Core\Page\PageRenderer;
+use \TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
+use \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
-class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddJsFooterInlineCodeViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
     /**
-     * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManager
-     * @inject
+     * @var ConfigurationManager
      */
     protected $configurationManager;
+    
+    /**
+     *
+     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManager $configurationManager
+     */
+    public function injectConfigurationManager(ConfigurationManager $configurationManager)
+    {
+        $this->configurationManager = $configurationManager;
+    }
 
     /**
      * @var \TYPO3\CMS\Core\Page\PageRenderer
