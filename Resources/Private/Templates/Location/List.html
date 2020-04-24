@@ -27,7 +27,7 @@
 			latitude: parseFloat("<f:format.raw value="{location.latitude}" />"),
 			longitude: parseFloat("<f:format.raw value="{location.longitude}" />"),
 			link: "<f:format.raw value="{location.link}" />",
-			icon: "<f:format.raw value="{location.icon}" />",
+			icon: "<f:uri.image image="{location.icon}" />",
 			anchorx: parseFloat("<f:format.raw value="{location.anchorx}" />"),
 			anchory: parseFloat("<f:format.raw value="{location.anchory}" />"),
 			clickable: true
@@ -147,7 +147,7 @@
 
 		if(loc.icon && loc.icon != '') {
 		icon = {
-		url: "/uploads/tx_easygooglemap/" + loc.icon,
+		url: loc.icon,
 		anchor: new google.maps.Point(loc.anchorx, loc.anchory)
 		}
 		}
