@@ -4,165 +4,177 @@
 
 <f:section name="main">
 	<div id="tx_easy_googlemap" style="height: {settings.height}; width: {settings.width};"></div>
+
 	<map:addJsFooterInlineCode name="easy_googlemap">
 		jQuery(document).ready(function() {
-		var map = null;
-		var settings = {
-		saturation:			<f:format.raw>{settings.saturation}</f:format.raw>,
-		gamma: 				<f:format.raw>{settings.gamma}</f:format.raw>,
-		fadeOutCats: 		"<f:format.raw>{settings.fadeoutcats}</f:format.raw>",
-		centerMapLatitude:  "<f:format.raw>{settings.centerMapLatitude}</f:format.raw>",
-		centerMapLongitude: "<f:format.raw>{settings.centerMapLongitude}</f:format.raw>",
-		zoom: 				 <f:format.raw>{settings.zoom}</f:format.raw>,
-		mapTypeId: 			 google.maps.MapTypeId.ROADMAP
-		};
-
-		var locations = [];
-
-		<f:for each="{locations}" as="location">
-			var location = {
-			title: "<f:format.raw value="{location.title}" />",
-			infotext: "<f:format.raw value="{location.infotext}" />",
-			infobox: "<f:format.raw value="{location.infobox}" />",
-			latitude: parseFloat("<f:format.raw value="{location.latitude}" />"),
-			longitude: parseFloat("<f:format.raw value="{location.longitude}" />"),
-			link: "<f:format.raw value="{location.link}" />",
-			icon: "<f:uri.image image="{location.icon}" />",
-			anchorx: parseFloat("<f:format.raw value="{location.anchorx}" />"),
-			anchory: parseFloat("<f:format.raw value="{location.anchory}" />"),
-			clickable: true
+			var map = null;
+			var settings = {
+				saturation:			<f:format.raw>{settings.saturation}</f:format.raw>,
+				gamma: 				<f:format.raw>{settings.gamma}</f:format.raw>,
+				fadeOutCats: 		"<f:format.raw>{settings.fadeoutcats}</f:format.raw>",
+				centerMapLatitude:  "<f:format.raw>{settings.centerMapLatitude}</f:format.raw>",
+				centerMapLongitude: "<f:format.raw>{settings.centerMapLongitude}</f:format.raw>",
+				zoom: 				 <f:format.raw>{settings.zoom}</f:format.raw>,
+				mapTypeId: 			 google.maps.MapTypeId.ROADMAP
 			};
 
-			if(!location.link && !location.infobox){
-			location.clickable = false;
+			var locations = [];
+
+			<f:for each="{locations}" as="location">
+
+				var location = {
+					title: "<f:format.raw value="{location.title}" />",
+					infotext: "<f:format.raw value="{location.infotext}" />",
+					infobox: "<f:format.raw value="{location.infobox}" />",
+					latitude: parseFloat("<f:format.raw value="{location.latitude}" />"),
+					longitude: parseFloat("<f:format.raw value="{location.longitude}" />"),
+					link: "<f:format.raw value="{location.link}" />",
+					<f:if condition="{location.icon} == ''">
+						<f:then>
+							icon: "<f:uri.image src="EXT:easy_googlemap/Resources/Public/Icons/default.png" />",
+							anchorx: parseFloat("<f:format.raw value="13" />"),
+							anchory: parseFloat("<f:format.raw value="43" />"),
+						</f:then>
+						<f:else>
+							icon: "<f:uri.image image="{location.icon}" />",
+							anchorx: parseFloat("<f:format.raw value="{location.anchorx}" />"),
+							anchory: parseFloat("<f:format.raw value="{location.anchory}" />"),
+						</f:else>
+					</f:if>
+					clickable: true
+				};
+
+				if(!location.link && !location.infobox){
+					location.clickable = false;
+				}
+
+				location.position = new google.maps.LatLng(location.latitude, location.longitude);
+				locations.push(location);
+			</f:for>
+
+			mapOptions = {
+				zoom: settings.zoom,
+				mapTypeId: settings.mapTypeId,
+				styles: [
+					{
+						stylers: [
+							{ saturation: <f:format.raw value="{settings.saturation}"/> },
+							{ gamma: <f:format.raw value="{settings.gamma}"/> }
+						]
+					}
+				]
+			};
+
+			if(settings.fadeOutCats || settings.fadeOutCats != '') {
+				var featureTypesString = settings.fadeOutCats.replace(/\s/g, '');
+				var featureTypes = featureTypesString.split(',');
+				featureTypes.forEach(function(featureType) {
+					mapOptions.styles.push({
+						featureType: featureType,
+						stylers: [
+							{ "visibility": "off" }
+						]
+					});
+				});
 			}
 
-			location.position = new google.maps.LatLng(location.latitude, location.longitude);
-			locations.push(location);
-		</f:for>
+			if(locations.length > 0) {
+				var bounds;
 
+				if(settings.centerMapLatitude != "" && settings.centerMapLongitude != "") {
+					mapOptions.center = {
+						lat: parseFloat(settings.centerMapLatitude),
+						lng: parseFloat(settings.centerMapLongitude)
+					};
+				} else {
+					mapOptions.center = {
+						lat: locations[0].latitude,
+						lng: locations[0].longitude
+					};
+					if(locations.length > 1) {
+						bounds = new google.maps.LatLngBounds();
+						locations.forEach(function(location) {
+							bounds.extend(location.position);
+						});
+					}
+				}
+				initMap(bounds);
+				setMarkers();
+			} else {
+				mapOptions.zoom = 7;
+				mapOptions.center = {
+					lat: 46.818188,
+					lng: 8.227512
+				};
+				initMap();
+			}
 
-		mapOptions = {
-		zoom: settings.zoom,
-		mapTypeId: settings.mapTypeId,
-		styles: [
-		{
-		stylers: [
-		{ saturation: <f:format.raw value="{settings.saturation}"/> },
-		{ gamma: <f:format.raw value="{settings.gamma}"/> }
-		]
-		}
-		]
-		};
+			function initMap(bounds) {
+				map = new google.maps.Map(document.getElementById("tx_easy_googlemap"), mapOptions);
+				if(bounds) {
+					map.fitBounds(bounds);
+				}
+			}
 
-		if(settings.fadeOutCats || settings.fadeOutCats != '') {
-		var featureTypesString = settings.fadeOutCats.replace(/\s/g, '');
-		var featureTypes = featureTypesString.split(',');
-		featureTypes.forEach(function(featureType) {
-		mapOptions.styles.push({
-		featureType: featureType,
-		stylers: [
-		{ "visibility": "off" }
-		]
-		});
-		}
-		);
-		}
+			function setMarkers() {
+				var markers = [];
+				var bounds = new google.maps.LatLngBounds();
 
-		if(locations.length > 0) {
-		var bounds;
+				locations.forEach(function(location) {
+					var marker = createMarker(location);
+					markers.push(marker);
 
-		if(settings.centerMapLatitude != "" && settings.centerMapLongitude != "") {
-		mapOptions.center = {
-		lat: parseFloat(settings.centerMapLatitude),
-		lng: parseFloat(settings.centerMapLongitude)
-		};
-		} else {
-		mapOptions.center = {
-		lat: locations[0].latitude,
-		lng: locations[0].longitude
-		};
-		if(locations.length > 1) {
-		bounds = new google.maps.LatLngBounds();
-		locations.forEach(function(location) {
-		bounds.extend(location.position);
-		});
-		}
-		}
-		initMap(bounds);
-		setMarkers();
-		} else {
-		mapOptions.zoom = 7;
-		mapOptions.center = {
-		lat: 46.818188,
-		lng: 8.227512
-		};
-		initMap();
-		}
+					if(location.title && location.infobox === "1") {
+						let contentString = '';
 
-		function initMap(bounds) {
-		map = new google.maps.Map(document.getElementById("tx_easy_googlemap"), mapOptions);
-		if(bounds) {
-		map.fitBounds(bounds);
-		}
-		}
+						if(marker.url){
+							contentString += '<a href="' + marker.url + '" target="_blank">' + location.title + '</a>';
+						} else {
+							contentString += '<b>' + location.title + '</b>';
+						}
 
-		function setMarkers() {
-		var markers = [];
-		var bounds = new google.maps.LatLngBounds();
+						if(location.infotext){
+							contentString += '<br>' + location.infotext;
+						}
 
-		locations.forEach(function(location) {
-		var marker = createMarker(location);
-		markers.push(marker);
-		if(location.title && location.infobox === "1") {
-		let contentString = '';
+						var infoWindow = new google.maps.InfoWindow({
+							content: contentString
+						});
 
-		if(marker.url){
-		contentString += '<a href="' + marker.url + '" target="_blank">' + location.title + '</a>';
-		} else {
-		contentString += '<b>' + location.title + '</b>';
-		}
+						marker.addListener('click', function() {
+							infoWindow.open(map, marker);
+						});
 
-		if(location.infotext){
-		contentString += '<br>' + location.infotext;
-		}
+					} else if(marker.url) {
+						new google.maps.event.addListener(marker, 'click', function() {
+							window.open(marker.url);
+						});
+					}
 
-		var infoWindow = new google.maps.InfoWindow({
-		content: contentString
-		});
-		marker.addListener('click', function() {
-		infoWindow.open(map, marker);
-		});
-		} else if(marker.url) {
-		new google.maps.event.addListener(marker, 'click', function() {
-		window.open(marker.url);
-		});
-		}
+					bounds.extend(location.position);
+				});
 
-		bounds.extend(location.position);
-		});
+				function createMarker(loc) {
+					var icon = null;
 
-		function createMarker(loc) {
-		var icon = null;
+					if(loc.icon && loc.icon != '') {
+						icon = {
+							url: loc.icon,
+							anchor: new google.maps.Point(loc.anchorx, loc.anchory)
+						}
+					}
 
-		if(loc.icon && loc.icon != '') {
-		icon = {
-		url: loc.icon,
-		anchor: new google.maps.Point(loc.anchorx, loc.anchory)
-		}
-		}
+					var newMarker = new google.maps.Marker({
+						map: map,
+						position: loc.position,
+						clickable: loc.clickable,
+						url: loc.link,
+						icon: icon
+					});
 
-		var newMarker = new google.maps.Marker({
-		map: map,
-		position: loc.position,
-		clickable: loc.clickable,
-		url: loc.link,
-		icon: icon
-		});
-
-		return newMarker;
-		}
-		}
+					return newMarker;
+				}
+			}
 		});
 	</map:addJsFooterInlineCode>
 </f:section>

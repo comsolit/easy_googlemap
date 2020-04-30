@@ -17,7 +17,7 @@ CREATE TABLE tx_easygooglemap_domain_model_location (
 	anchory int(10) DEFAULT '0' NOT NULL,
 	longitude decimal(10,7) DEFAULT '0.0000000' NOT NULL,
 	latitude decimal(10,7) DEFAULT '0.0000000' NOT NULL,
-	icon text NOT NULL,
+	icon text DEFAULT NULL,
 	link varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

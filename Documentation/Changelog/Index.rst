@@ -73,3 +73,7 @@ ChangeLog
 +----------------+---------------------------------------------------------------------------------+
 | 3.0.1          | Fix for negative longitude                                                      |
 +----------------+---------------------------------------------------------------------------------+
+| 3.0.2          | Support added for TYPO3 Version 10 - thanks to NitinParri                       |
+|                | Split Userfuncs code into Form Element classes - thanks to NitinParri           |
+|                | Added default icon image if no icon is set                                      |
++----------------+---------------------------------------------------------------------------------+

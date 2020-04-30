@@ -1,4 +1,5 @@
-(function() {
+require(["jquery"], function($) {
+
     var hiddenField = $('.url-input');
     var inputField = $('<input type="text" class="form-control">');
     hiddenField.after(inputField);
@@ -51,12 +52,8 @@
     select.find('option:contains(' + initialValue[0]+ '://' + ')').attr('selected', 'true');
 
     function validateUrl(url) {
-        var regexp = new RegExp("^(www\\.)?([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?");
-        if (!regexp.test(url)) {
-            return false;
-        } else {
-            return true;
-        }
+        var regexp = new RegExp("^(www\\.)?([0-9A-Za-z-.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?");
+        return regexp.test(url);
     }
 
     function setValue()

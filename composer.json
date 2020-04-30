@@ -1,7 +1,7 @@
 {
   "name": "comsolit/easy_googlemap",
   "type": "typo3-cms-extension",
-  "description": "Google Map Extension",
+  "description": "Easy and simple Googlemap Extension for the TYPO3 CMS, Good use for company roadmap on websites and for responsive pages, based on the google maps API",
   "version": "3.0.2",
   "keywords": [
     "TYPO3",

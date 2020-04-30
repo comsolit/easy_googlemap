@@ -5,8 +5,9 @@ namespace Comsolit\EasyGooglemap\ViewHelpers\PageRenderer;
 use \TYPO3\CMS\Core\Page\PageRenderer;
 use \TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper as AbstractViewHelperAlias;
 
-class AddJsFooterInlineCodeViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddJsFooterInlineCodeViewHelper extends AbstractViewHelperAlias
 {
     /**
      * @var ConfigurationManager

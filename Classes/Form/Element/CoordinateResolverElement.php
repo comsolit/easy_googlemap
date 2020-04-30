@@ -11,7 +11,6 @@ class CoordinateResolverElement extends AbstractFormElement
 {
     public function render()
     {
-        
         $objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
 
         /** @var ConfigurationManager $configurationManager */
