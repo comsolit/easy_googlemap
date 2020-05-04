@@ -76,4 +76,6 @@ ChangeLog
 | 3.0.2          | Support added for TYPO3 Version 10 - thanks to NitinParri                       |
 |                | Split Userfuncs code into Form Element classes - thanks to NitinParri           |
 |                | Added default icon image if no icon is set                                      |
+|                | Updated jQuery for FE to Version 3.5.0                                          |
+|                | Minor js fixes in BE                                                            |
 +----------------+---------------------------------------------------------------------------------+

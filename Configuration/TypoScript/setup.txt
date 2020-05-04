@@ -38,11 +38,5 @@ page {
 	  		if.isTrue = {$plugin.tx_easygooglemap.includeJquery}
 	  	}
 	}
-
-	includeJS {
-        jquery = https://code.jquery.com/jquery-3.4.1.min.js
-        jquery.external = 1
-        jquery.integrity = sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh
-    }
 }
 
